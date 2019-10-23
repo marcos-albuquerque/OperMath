@@ -7,22 +7,21 @@
     tools:context=".SecondActivity">
 
     <CheckBox
-        android:id="@+id/checkBox7"
+        android:id="@+id/checkBoxAdicao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Adição"
+        app:layout_constraintBottom_toTopOf="@+id/checkBoxSubtracao"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <CheckBox
-        android:id="@+id/checkBox9"
+        android:id="@+id/checkBoxSubtracao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -30,87 +29,91 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Subtração"
+        app:layout_constraintBottom_toTopOf="@+id/checkBoxMultiplicacao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox7" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxAdicao" />
 
     <CheckBox
-        android:id="@+id/checkBox10"
+        android:id="@+id/checkBoxMultiplicacao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Multiplicação"
+        app:layout_constraintBottom_toTopOf="@+id/checkBoxDivisao"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox9" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxSubtracao" />
 
     <CheckBox
-        android:id="@+id/checkBox11"
+        android:id="@+id/checkBoxDivisao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Divisão"
+        app:layout_constraintBottom_toTopOf="@+id/checkBoxPotenciacao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox10" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxMultiplicacao" />
 
     <CheckBox
-        android:id="@+id/checkBox12"
+        android:id="@+id/checkBoxPotenciacao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Potenciação"
+        app:layout_constraintBottom_toTopOf="@+id/checkBoxRadiciacao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox11" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxDivisao" />
 
     <CheckBox
-        android:id="@+id/checkBox13"
+        android:id="@+id/checkBoxRadiciacao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Radiciação"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox12" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxPotenciacao" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/buttonDuelar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="2dp"
         android:text="Iniciar Duelo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginBottom="286dp"
+        android:layout_marginBottom="7dp"
         android:text="Escolha as operações do duelo"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup2"
+        app:layout_constraintBottom_toTopOf="@+id/checkBoxAdicao"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,71 +121,44 @@
         android:id="@+id/textView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
         android:text="Escolha o nível do duelo"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox13" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxRadiciacao" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="118dp"
-        android:layout_marginLeft="118dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <RadioButton
-        android:id="@+id/radioButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginLeft="108dp"
-        android:text="Fácil"
-        app:layout_constraintBaseline_toBaselineOf="@+id/radioButton2"
-        app:layout_constraintStart_toStartOf="@+id/textView" />
-
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="Médio"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox7"
-        app:layout_constraintStart_toStartOf="@+id/radioButton1" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup2"
-        android:layout_width="94dp"
+        android:layout_width="152dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="122dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDuelar"
+        app:layout_constraintStart_toStartOf="@+id/buttonDuelar"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/radioButtonFacil"
+            android:layout_width="134dp"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="Fácil" />
 
         <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/radioButtonMedio"
+            android:layout_width="135dp"
+            android:layout_height="5dp"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="Médio" />
 
         <RadioButton
-            android:id="@+id/radioButton5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/radioButtonDificil"
+            android:layout_width="135dp"
+            android:layout_height="4dp"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="Difícil" />
     </RadioGroup>
 
     />
