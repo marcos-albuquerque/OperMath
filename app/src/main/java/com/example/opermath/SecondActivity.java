@@ -12,6 +12,16 @@ import android.widget.Toast;
 
 public class SecondActivity extends AppCompatActivity {
 
+    public static String ADICAO_SELECIONADO = "ADICAO_SELECIONADO";
+    public static String SUBTRACAO_SELECIONADO = "SUBTRACAO_SELECIONADO";
+    public static String MULTIPLICACAO_SELECIONADO = "MULTIPLICACAO_SELECIONADO";
+    public static String DIVISAO_SELECIONADO = "DIVISAO_SELECIONADO";
+    public static String POTENCIACAO_SELECIONADO = "POTENCIACAO_SELECIONADO";
+    public static String RADICIACAO_SELECIONADO = "RADICIACAO_SELECIONADO";
+    public static String FACIL_SELECIONADO = "FACIL_SELECIONADO";
+    public static String MEDIO_SELECIONADO = "MEDIO_SELECIONADO";
+    public static String DIFICIL_SELECIONADO = "DIFICIL_SELECIONADO";
+
     // private TextView primeiroTextView;
     // private TextView segundoTextView;
 
@@ -59,19 +69,26 @@ public class SecondActivity extends AppCompatActivity {
                         {
                             //Toast.makeText(getApplicationContext(), "Que o duelo comece!", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent( SecondActivity.this, DueloActivity.class);
+                            intent.putExtra(ADICAO_SELECIONADO, adicao.isChecked());
+                            intent.putExtra(SUBTRACAO_SELECIONADO, subtracao.isChecked());
+                            intent.putExtra(MULTIPLICACAO_SELECIONADO, multiplicacao.isChecked());
+                            intent.putExtra(DIVISAO_SELECIONADO, divisao.isChecked());
+                            intent.putExtra(POTENCIACAO_SELECIONADO, potenciacao.isChecked());
+                            intent.putExtra(RADICIACAO_SELECIONADO, radiciacao.isChecked());
+                            intent.putExtra(FACIL_SELECIONADO, facil.isChecked());
+                            intent.putExtra(MEDIO_SELECIONADO, medio.isChecked());
+                            intent.putExtra(DIVISAO_SELECIONADO, dificil.isChecked());
+
                             startActivity(intent);
                         }
                         else {
-                            Toast.makeText(getApplicationContext(), "Selecione pelo menos uma operação.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Selecione um nível e pelo menos uma operação.", Toast.LENGTH_LONG).show();
                         }
                     }
                 }
         );
 
-        //Toast.makeText(getApplicationContext(), "Selecione pelo menos uma operação." + adicao.isChecked(), Toast.LENGTH_LONG).show();
-
-
-        if (adicao.isSelected() || subtracao.isSelected() || multiplicacao.isSelected() ||
+      /*  if (adicao.isSelected() || subtracao.isSelected() || multiplicacao.isSelected() ||
                 divisao.isSelected() || potenciacao.isSelected() || radiciacao.isSelected()) {
             buttonDuelar.setOnClickListener(
                     new View.OnClickListener() {
@@ -84,7 +101,7 @@ public class SecondActivity extends AppCompatActivity {
                         }
                     }
             );
-        }
+        } */
     }
 
 
