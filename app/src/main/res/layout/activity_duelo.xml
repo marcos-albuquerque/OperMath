@@ -6,78 +6,163 @@
     android:layout_height="match_parent"
     tools:context=".DueloActivity">
 
-    <TextView
-        android:id="@+id/operando1"
+    <Button
+        android:id="@+id/answer2j1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/operador"
-        app:layout_constraintEnd_toStartOf="@+id/operador" />
-
-    <TextView
-        android:id="@+id/placar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:layout_marginBottom="29dp"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/placarj1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/operador"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/operando2"
-        app:layout_constraintStart_toStartOf="@+id/placar" />
-
-    <TextView
-        android:id="@+id/operando2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginLeft="31dp"
-        android:layout_marginTop="76dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/operador"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/answer1"
+        android:id="@+id/answer1j1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:text="Button"
-        app:layout_constraintBaseline_toBaselineOf="@+id/answer3"
-        app:layout_constraintEnd_toStartOf="@+id/answer3"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintBaseline_toBaselineOf="@+id/answer2j1"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/answer3"
+    <TextView
+        android:id="@+id/operando2j1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/answer2"
-        app:layout_constraintStart_toEndOf="@+id/answer1"
-        app:layout_constraintTop_toBottomOf="@+id/operador" />
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:text="0"
+        app:layout_constraintBottom_toTopOf="@+id/answer3j1"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/operadorj1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="34dp"
+        android:gravity="center"
+        android:text="0"
+        app:layout_constraintBottom_toTopOf="@+id/answer2j1"
+        app:layout_constraintStart_toStartOf="@+id/answer2j1" />
+
+    <TextView
+        android:id="@+id/operando1j1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:text="0"
+        app:layout_constraintBottom_toTopOf="@+id/answer1j1"
+        app:layout_constraintEnd_toEndOf="@+id/answer1j1"
+        app:layout_constraintStart_toStartOf="@+id/answer1j1" />
+
+    <TextView
+        android:id="@+id/placarj1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
+        android:layout_marginBottom="84dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/answer2j1"
+        tools:gravity="center" />
 
     <Button
-        android:id="@+id/answer2"
+        android:id="@+id/answer3j1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:text="Button"
-        app:layout_constraintBaseline_toBaselineOf="@+id/answer3"
+        app:layout_constraintBaseline_toBaselineOf="@+id/answer2j1"
+        app:layout_constraintEnd_toEndOf="@+id/operando2j1"
+        app:layout_constraintStart_toEndOf="@+id/operando2j1" />
+
+    <Button
+        android:id="@+id/answer1j2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:rotation="180"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="@+id/answer2j2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/answer2j2" />
+
+    <Button
+        android:id="@+id/answer2j2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:rotation="180"
+        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/answer3" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/placarj2" />
+
+    <Button
+        android:id="@+id/answer3j2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:rotation="180"
+        android:text="Button"
+        app:layout_constraintBaseline_toBaselineOf="@+id/answer2j2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/operando2j2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:gravity="center"
+        android:rotation="180"
+        android:text="7"
+        app:layout_constraintEnd_toEndOf="@+id/operando1j1"
+        app:layout_constraintStart_toStartOf="@+id/operando1j1"
+        app:layout_constraintTop_toBottomOf="@+id/answer1j2" />
+
+    <TextView
+        android:id="@+id/operadorj2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="43dp"
+        android:rotation="180"
+        android:text="7"
+        app:layout_constraintStart_toStartOf="@+id/answer2j2"
+        app:layout_constraintTop_toBottomOf="@+id/answer2j2" />
+
+    <TextView
+        android:id="@+id/operando1j2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:rotation="180"
+        android:text="7"
+        app:layout_constraintBottom_toBottomOf="@+id/operadorj2"
+        app:layout_constraintEnd_toEndOf="@+id/operando2j1"
+        app:layout_constraintStart_toStartOf="@+id/operando2j1"
+        app:layout_constraintTop_toTopOf="@+id/operadorj2" />
+
+    <TextView
+        android:id="@+id/placarj2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        android:rotation="180"
+        android:text="7"
+        app:layout_constraintEnd_toEndOf="@+id/answer2j2"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

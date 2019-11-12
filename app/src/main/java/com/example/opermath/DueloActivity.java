@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.opermath.nivel.INivel;
 import com.example.opermath.nivel.NivelFacil;
@@ -19,29 +18,57 @@ public class DueloActivity extends AppCompatActivity {
 
     private List<Character> operacoes = new ArrayList<>();
 
-    private TextView placar;
-    private TextView operando1;
-    private TextView operando2;
-    private TextView operador;
-    private Button answer1;
-    private Button answer2;
-    private Button answer3;
+    private TextView placarj1;
+    private TextView placarj2;
+    private TextView operando1j1;
+    private TextView operando1j2;
+    private TextView operando2j1;
+    private TextView operando2j2;
+    private TextView operadorj1;
+    private TextView operadorj2;
+
+    private Button answer1j1;
+    private Button answer1j2;
+    private Button answer2j1;
+    private Button answer2j2;
+    private Button answer3j1;
+    private Button answer3j2;
+
+    List<Button> buttonListj1;
+
+
     private int ponto1;
     private int ponto2;
     private INivel nivel;
+
+    public DueloActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_duelo);
 
-        placar = findViewById(R.id.placar);
-        operando1 = findViewById(R.id.operando1);
-        operando2 = findViewById(R.id.operando2);
-        operador = findViewById(R.id.operador);
-        answer1 = findViewById(R.id.answer1);
-        answer2 = findViewById(R.id.answer2);
-        answer3 = findViewById(R.id.answer3);
+        placarj1 = findViewById(R.id.placarj1);
+        operando1j1 = findViewById(R.id.operando1j1);
+        operando2j1 = findViewById(R.id.operando2j1);
+        operadorj1 = findViewById(R.id.operadorj1);
+        answer1j1 = findViewById(R.id.answer1j1);
+        answer2j1 = findViewById(R.id.answer3j1);
+        answer3j1 = findViewById(R.id.answer2j1);
+
+        placarj2 = findViewById(R.id.placarj2);
+        operando1j2 = findViewById(R.id.operando2j2);
+        operando2j2 = findViewById(R.id.operando2j2);
+        operadorj2 = findViewById(R.id.operadorj2);
+        answer1j2 = findViewById(R.id.answer1j2);
+        answer2j2 = findViewById(R.id.answer3j2);
+        answer3j2 = findViewById(R.id.answer2j2);
+
+        buttonListj1 = new ArrayList<>();
+        buttonListj1.add(answer1j1);
+        buttonListj1.add(answer2j1);
+        buttonListj1.add(answer3j1);
 
         Intent second = getIntent();
 
@@ -66,66 +93,21 @@ public class DueloActivity extends AppCompatActivity {
         }*/
         ponto1 = 0;
         ponto2 = 0;
-        placar.setText("" + 0);
+        placarj1.setText("" + 0);
+        placarj2.setText("" + 0);
         addActionToButtons();
         nextProblem();
-
-        /*Random random = new Random();
-        char operacao = operacoes.get(random.nextInt(operacoes.size()));
-        INivel nivel = new NivelFacil(operacao);
-        //Toast.makeText(getApplicationContext(), "Adicao selecionado."+nivel.getA(), Toast.LENGTH_LONG).show();
-
-        operando1.setText("" + nivel.getA());
-        operando2.setText("" + nivel.getB());
-        operador.setText("" + nivel.getOperacao());
-
-        int indice = random.nextInt(3);
-        int indice2 = random.nextInt(2);
-        Button primeiro = null;
-        Button segundo = null;
-
-
-        if(indice == 0){
-            answer1.setText("" + nivel.answer());
-            if(indice2 == 0){
-                primeiro = answer2;
-                segundo = answer3;
-            } else{
-                primeiro = answer3;
-                segundo = answer2;
-            }
-
-        }
-        if(indice == 1){
-            answer2.setText("" + nivel.answer());
-            if(indice2 == 0){
-                primeiro = answer1;
-                segundo = answer3;
-            } else{
-                primeiro = answer3;
-                segundo = answer1;
-            }
-        }
-        if(indice == 2){
-            answer3.setText("" + nivel.answer());
-            if(indice2 == 0){
-                primeiro = answer1;
-                segundo = answer2;
-            } else{
-                primeiro = answer2;
-                segundo = answer1;
-            }
-        }
-        INivel nivel2 = new NivelFacil(operacao);
-        primeiro.setText("" + nivel2.getA());
-        segundo.setText("" + nivel2.getA());*/
 
     }
 
     private void addActionToButtons(){
-        addEventToAnswer(answer1);
-        addEventToAnswer(answer2);
-        addEventToAnswer(answer3);
+        addEventToAnswer(answer1j1);
+        addEventToAnswer(answer2j1);
+        addEventToAnswer(answer3j1);
+
+        addEventToAnswer(answer1j2);
+        addEventToAnswer(answer2j2);
+        addEventToAnswer(answer3j2);
     }
 
     private void addEventToAnswer(final Button answer){
@@ -134,14 +116,28 @@ public class DueloActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if(answer.getText().equals(""+nivel.answer())){
-                            ponto1 ++;
-                            placar.setText("" + ponto1);
-                            nextProblem();
+                            if(buttonListj1.contains(answer)) {
+                                ponto1++;
+                                placarj1.setText("" + ponto1);
+                                nextProblem();
+                            }
+                            else{
+                                ponto2++;
+                                placarj2.setText("" + ponto2);
+                                nextProblem();
+                            }
                            // Toast.makeText(getApplicationContext(), "Resposta correta selecionada.", Toast.LENGTH_LONG).show();
                         } else {
-                            ponto1 --;
-                            placar.setText("" + ponto1);
-                            nextProblem();
+                            if(buttonListj1.contains(answer)) {
+                                ponto1--;
+                                placarj1.setText("" + ponto1);
+                                nextProblem();
+                            }
+                            else{
+                                ponto2--;
+                                placarj2.setText("" + ponto2);
+                                nextProblem();
+                            }
                             //Toast.makeText(getApplicationContext(), "Resposta incorreta selecionada."+answer.getText(), Toast.LENGTH_LONG).show();
                         }
 
@@ -156,45 +152,57 @@ public class DueloActivity extends AppCompatActivity {
         nivel = new NivelFacil(operacao);
         //Toast.makeText(getApplicationContext(), "Adicao selecionado."+nivel.getA(), Toast.LENGTH_LONG).show();
 
-        operando1.setText("" + nivel.getA());
-        operando2.setText("" + nivel.getB());
-        operador.setText("" + nivel.getOperacao());
+        operando1j1.setText("" + nivel.getA());
+        operando2j1.setText("" + nivel.getB());
+        operadorj1.setText("" + nivel.getOperacao());
 
         int indice = random.nextInt(3);
         int indice2 = random.nextInt(2);
-        Button primeiro = null;
-        Button segundo = null;
+        int primeiro = -1;
+        int segundo = -1;
 
+        List<Button> viewList = new ArrayList<>();
+        viewList.add(answer1j1);
+        viewList.add(answer2j1);
+        viewList.add(answer3j1);
+
+        List<Button> viewList2 = new ArrayList<>();
+        viewList2.add(answer1j2);
+        viewList2.add(answer2j2);
+        viewList2.add(answer3j2);
 
         if(indice == 0){
-            answer1.setText("" + nivel.answer());
+            answer1j1.setText("" + nivel.answer());
+            answer1j2.setText("" + nivel.answer());
             if(indice2 == 0){
-                primeiro = answer2;
-                segundo = answer3;
+                primeiro = 2;
+                segundo = 3;
             } else{
-                primeiro = answer3;
-                segundo = answer2;
+                primeiro = 3;
+                segundo = 2;
             }
 
         }
         if(indice == 1){
-            answer2.setText("" + nivel.answer());
+            answer2j1.setText("" + nivel.answer());
+            answer2j2.setText("" + nivel.answer());
             if(indice2 == 0){
-                primeiro = answer1;
-                segundo = answer3;
+                primeiro = 1;
+                segundo = 3;
             } else{
-                primeiro = answer3;
-                segundo = answer1;
+                primeiro = 3;
+                segundo = 1;
             }
         }
         if(indice == 2){
-            answer3.setText("" + nivel.answer());
+            answer3j1.setText("" + nivel.answer());
+            answer3j2.setText("" + nivel.answer());
             if(indice2 == 0){
-                primeiro = answer1;
-                segundo = answer2;
+                primeiro = 1;
+                segundo = 2;
             } else{
-                primeiro = answer2;
-                segundo = answer1;
+                primeiro = 2;
+                segundo = 1;
             }
         }
         List<Integer> valores = new ArrayList<>();
@@ -204,13 +212,15 @@ public class DueloActivity extends AppCompatActivity {
         while(valores.contains(valor)){
             valor = nivel2.getA();
         }
-        primeiro.setText("" + valor);
+        viewList.get(primeiro - 1).setText("" + valor);
+        viewList2.get(primeiro -1).setText("" + valor);
         valores.add(valor);
         valor = nivel2.getA();
         while(valores.contains(valor)){
             valor = nivel2.getA();
         }
-        segundo.setText("" + valor);
+        viewList.get(segundo -1).setText("" + valor);
+        viewList2.get(segundo -1).setText("" + valor);
 
     }
 }
