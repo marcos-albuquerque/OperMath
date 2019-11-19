@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DueloActivity"></activity>
+        <activity android:name=".VencedorActivity"></activity>
+        <activity android:name=".DueloActivity" />
         <activity android:name=".RadiActivity" />
         <activity android:name=".PoteActivity" />
         <activity android:name=".DiviActivity" />

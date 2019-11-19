@@ -17,6 +17,8 @@ public abstract class INivel {
 
     public abstract int getB();
 
+    public abstract int getRandom();
+
     public int answer (){
         if(operacao == '+'){
             return a + b;

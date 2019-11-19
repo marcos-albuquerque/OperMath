@@ -69,55 +69,6 @@ public class PraticarActivity extends AppCompatActivity {
         addActionToButtons();
         nextProblem();
 
-        /*Random random = new Random();
-        char operacao = operacoes.get(random.nextInt(operacoes.size()));
-        INivel nivel = new NivelFacil(operacao);
-        //Toast.makeText(getApplicationContext(), "Adicao selecionado."+nivel.getA(), Toast.LENGTH_LONG).show();
-
-        operando1.setText("" + nivel.getA());
-        operando2.setText("" + nivel.getB());
-        operador.setText("" + nivel.getOperacao());
-
-        int indice = random.nextInt(3);
-        int indice2 = random.nextInt(2);
-        Button primeiro = null;
-        Button segundo = null;
-
-
-        if(indice == 0){
-            answer1.setText("" + nivel.answer());
-            if(indice2 == 0){
-                primeiro = answer2;
-                segundo = answer3;
-            } else{
-                primeiro = answer3;
-                segundo = answer2;
-            }
-
-        }
-        if(indice == 1){
-            answer2.setText("" + nivel.answer());
-            if(indice2 == 0){
-                primeiro = answer1;
-                segundo = answer3;
-            } else{
-                primeiro = answer3;
-                segundo = answer1;
-            }
-        }
-        if(indice == 2){
-            answer3.setText("" + nivel.answer());
-            if(indice2 == 0){
-                primeiro = answer1;
-                segundo = answer2;
-            } else{
-                primeiro = answer2;
-                segundo = answer1;
-            }
-        }
-        INivel nivel2 = new NivelFacil(operacao);
-        primeiro.setText("" + nivel2.getA());
-        segundo.setText("" + nivel2.getA());*/
 
     }
 

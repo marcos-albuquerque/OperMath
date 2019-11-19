@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.opermath.nivel.INivel;
 import com.example.opermath.nivel.NivelFacil;
@@ -17,6 +18,8 @@ import java.util.Random;
 public class DueloActivity extends AppCompatActivity {
 
     private List<Character> operacoes = new ArrayList<>();
+
+    public static String JOGADOR = "Jogador";
 
     private TextView placarj1;
     private TextView placarj2;
@@ -35,7 +38,7 @@ public class DueloActivity extends AppCompatActivity {
     private Button answer3j2;
 
     List<Button> buttonListj1;
-
+    List<Button> buttonListj2; //*
 
     private int ponto1;
     private int ponto2;
@@ -58,7 +61,7 @@ public class DueloActivity extends AppCompatActivity {
         answer3j1 = findViewById(R.id.answer2j1);
 
         placarj2 = findViewById(R.id.placarj2);
-        operando1j2 = findViewById(R.id.operando2j2);
+        operando1j2 = findViewById(R.id.operando1j2);
         operando2j2 = findViewById(R.id.operando2j2);
         operadorj2 = findViewById(R.id.operadorj2);
         answer1j2 = findViewById(R.id.answer1j2);
@@ -69,6 +72,11 @@ public class DueloActivity extends AppCompatActivity {
         buttonListj1.add(answer1j1);
         buttonListj1.add(answer2j1);
         buttonListj1.add(answer3j1);
+
+        buttonListj2 = new ArrayList<>(); //*
+        buttonListj2.add(answer1j2);
+        buttonListj2.add(answer2j2);
+        buttonListj2.add(answer3j2);
 
         Intent second = getIntent();
 
@@ -140,7 +148,18 @@ public class DueloActivity extends AppCompatActivity {
                             }
                             //Toast.makeText(getApplicationContext(), "Resposta incorreta selecionada."+answer.getText(), Toast.LENGTH_LONG).show();
                         }
-
+                        if(ponto1 == 2) {
+                            //Toast.makeText(getApplicationContext(), "O jogador 1 venceu!.", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(DueloActivity.this, VencedorActivity.class);
+                            intent.putExtra(JOGADOR, 1);
+                            startActivity(intent);
+                        }
+                        else if (ponto2 == 2){
+                            //Toast.makeText(getApplicationContext(), "O jogador 2 venceu!.", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(DueloActivity.this, VencedorActivity.class);
+                            intent.putExtra(JOGADOR, 2);
+                            startActivity(intent);
+                        }
                     }
                 }
         );
@@ -152,9 +171,16 @@ public class DueloActivity extends AppCompatActivity {
         nivel = new NivelFacil(operacao);
         //Toast.makeText(getApplicationContext(), "Adicao selecionado."+nivel.getA(), Toast.LENGTH_LONG).show();
 
-        operando1j1.setText("" + nivel.getA());
-        operando2j1.setText("" + nivel.getB());
-        operadorj1.setText("" + nivel.getOperacao());
+        int a = nivel.getA();
+        int b = nivel.getB();
+        char operacaonivel = nivel.getOperacao();
+
+        operando1j1.setText("" + a);
+        operando1j2.setText("" + a);
+        operando2j1.setText("" + b);
+        operando2j2.setText("" + b);
+        operadorj1.setText("" + operacaonivel);
+        operadorj2.setText("" + operacaonivel);
 
         int indice = random.nextInt(3);
         int indice2 = random.nextInt(2);
@@ -170,6 +196,7 @@ public class DueloActivity extends AppCompatActivity {
         viewList2.add(answer1j2);
         viewList2.add(answer2j2);
         viewList2.add(answer3j2);
+
 
         if(indice == 0){
             answer1j1.setText("" + nivel.answer());
@@ -208,16 +235,16 @@ public class DueloActivity extends AppCompatActivity {
         List<Integer> valores = new ArrayList<>();
         valores.add(nivel.answer());
         INivel nivel2 = new NivelFacil(operacao);
-        int valor = nivel2.getA();
+        int valor = nivel2.getRandom();
         while(valores.contains(valor)){
-            valor = nivel2.getA();
+            valor = nivel2.getRandom();
         }
         viewList.get(primeiro - 1).setText("" + valor);
         viewList2.get(primeiro -1).setText("" + valor);
         valores.add(valor);
-        valor = nivel2.getA();
+        valor = nivel2.getRandom();
         while(valores.contains(valor)){
-            valor = nivel2.getA();
+            valor = nivel2.getRandom();
         }
         viewList.get(segundo -1).setText("" + valor);
         viewList2.get(segundo -1).setText("" + valor);

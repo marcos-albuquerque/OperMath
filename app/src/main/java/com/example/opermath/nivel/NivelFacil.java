@@ -5,26 +5,29 @@ import java.util.Random;
 public class NivelFacil extends INivel {
     public NivelFacil(char operacao) {
         super(operacao);
+        a = -1;
+        if(operacao == '+' || operacao == '-'){
+            a = getRandom();
+        }
+        //a = -1;
+        b = -1;
+        if(operacao == '+' || operacao == '-') {
+            b = getRandom();
+        }
     }
 
     @Override
     public int getA() {
-        a = -1;
-        if(operacao == '+' || operacao == '-'){
-            Random random = new Random();
-            a = random.nextInt(11);
-        }
-        //a = -1;
         return a;
     }
 
     @Override
     public int getB() {
-        b = -1;
-        if(operacao == '+' || operacao == '-') {
-            Random random = new Random();
-            b = random.nextInt(11);
-        }
         return b;
+    }
+
+    public int getRandom(){
+        Random random = new Random();
+        return random.nextInt(11);
     }
 }
