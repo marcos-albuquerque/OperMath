@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.opermath.nivel.INivel;
 import com.example.opermath.nivel.NivelFacil;
+import com.example.opermath.nivel.NivelMedio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,10 @@ public class DueloActivity extends AppCompatActivity {
     private List<Character> operacoes = new ArrayList<>();
 
     public static String JOGADOR = "Jogador";
+    public static char OPERACAO_ADICAO = '+';
+    public static char OPERACAO_SUBTRACAO = '-';
+    public static char OPERACAO_MULTIPLICACAO = 'x';
+    public static char OPERACAO_DIVISAO = '/';
 
     private TextView placarj1;
     private TextView placarj2;
@@ -82,17 +87,18 @@ public class DueloActivity extends AppCompatActivity {
 
         if(second.hasExtra(SecondActivity.ADICAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.ADICAO_SELECIONADO, false) == true) {
             //Toast.makeText(getApplicationContext(), "Adicao selecionado.", Toast.LENGTH_LONG).show();
-            operacoes.add('+');
+            operacoes.add(OPERACAO_ADICAO);
         }
         if(second.hasExtra(SecondActivity.SUBTRACAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.SUBTRACAO_SELECIONADO, false) == true) {
-            operacoes.add('-');
+            operacoes.add(OPERACAO_SUBTRACAO);
         }
         if(second.hasExtra(SecondActivity.MULTIPLICACAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.MULTIPLICACAO_SELECIONADO, false) == true) {
-            operacoes.add('x');
+            operacoes.add(OPERACAO_MULTIPLICACAO);
         }
         if(second.hasExtra(SecondActivity.DIVISAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.DIVISAO_SELECIONADO, false) == true) {
-            operacoes.add('/');
+            operacoes.add(OPERACAO_DIVISAO);
         }
+        //Toast.makeText(getApplicationContext(), "Divisão selecionado." + second.getBooleanExtra(SecondActivity.DIVISAO_SELECIONADO, false), Toast.LENGTH_LONG).show();
         /*if(second.hasExtra(SecondActivity.POTENCIACAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.POTENCIACAO_SELECIONADO, false) == true) {
             operacoes.add('^');
         }
@@ -105,7 +111,19 @@ public class DueloActivity extends AppCompatActivity {
         placarj2.setText("" + 0);
         addActionToButtons();
         nextProblem();
+    }
 
+    private INivel getNewNivel(Intent second, char operacao){
+        if(second.hasExtra(SecondActivity.FACIL_SELECIONADO) && second.getBooleanExtra(SecondActivity.FACIL_SELECIONADO, false) == true) {
+            return  new NivelFacil(operacao);
+        }
+        else if(second.hasExtra(SecondActivity.MEDIO_SELECIONADO) && second.getBooleanExtra(SecondActivity.MEDIO_SELECIONADO, false) == true) {
+            return new NivelMedio(operacao);
+        }
+        return null;
+        //else if(second.hasExtra(SecondActivity.MEDIO_SELECIONADO) && second.getBooleanExtra(SecondActivity.MEDIO_SELECIONADO, false) == true){
+        //   nivel = new NivelMedio(operacao);
+        //}
     }
 
     private void addActionToButtons(){
@@ -148,13 +166,13 @@ public class DueloActivity extends AppCompatActivity {
                             }
                             //Toast.makeText(getApplicationContext(), "Resposta incorreta selecionada."+answer.getText(), Toast.LENGTH_LONG).show();
                         }
-                        if(ponto1 == 2) {
+                        if(ponto1 >= 2) {
                             //Toast.makeText(getApplicationContext(), "O jogador 1 venceu!.", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(DueloActivity.this, VencedorActivity.class);
                             intent.putExtra(JOGADOR, 1);
                             startActivity(intent);
                         }
-                        else if (ponto2 == 2){
+                        else if (ponto2 >= 2){
                             //Toast.makeText(getApplicationContext(), "O jogador 2 venceu!.", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(DueloActivity.this, VencedorActivity.class);
                             intent.putExtra(JOGADOR, 2);
@@ -168,8 +186,9 @@ public class DueloActivity extends AppCompatActivity {
     private void nextProblem(){
         Random random = new Random();
         char operacao = operacoes.get(random.nextInt(operacoes.size()));
-        nivel = new NivelFacil(operacao);
+        nivel = getNewNivel(getIntent(), operacao);
         //Toast.makeText(getApplicationContext(), "Adicao selecionado."+nivel.getA(), Toast.LENGTH_LONG).show();
+
 
         int a = nivel.getA();
         int b = nivel.getB();
@@ -234,7 +253,7 @@ public class DueloActivity extends AppCompatActivity {
         }
         List<Integer> valores = new ArrayList<>();
         valores.add(nivel.answer());
-        INivel nivel2 = new NivelFacil(operacao);
+        INivel nivel2 = getNewNivel(getIntent(), operacao);
         int valor = nivel2.getRandom();
         while(valores.contains(valor)){
             valor = nivel2.getRandom();

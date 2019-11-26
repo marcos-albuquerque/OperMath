@@ -6,20 +6,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class NivelFacil extends INivel {
-    public NivelFacil(char operacao) {
+public class NivelMedio extends INivel {
+    public NivelMedio(char operacao) {
         super(operacao);
         a = -1;
         if(operacao == DueloActivity.OPERACAO_ADICAO
-                || operacao == DueloActivity.OPERACAO_SUBTRACAO || operacao == DueloActivity.OPERACAO_MULTIPLICACAO
+                || operacao == DueloActivity.OPERACAO_SUBTRACAO
                 || operacao == DueloActivity.OPERACAO_DIVISAO){
             a = getRandom();
+        }
+        else if(operacao == DueloActivity.OPERACAO_MULTIPLICACAO){
+            a = getRandom(11);
         }
         //a = -1;
         b = -1;
         if(operacao == DueloActivity.OPERACAO_ADICAO
-                || operacao == DueloActivity.OPERACAO_SUBTRACAO || operacao == DueloActivity.OPERACAO_MULTIPLICACAO){
+                || operacao == DueloActivity.OPERACAO_SUBTRACAO){
             b = getRandom();
+        }
+        else if (operacao == DueloActivity.OPERACAO_MULTIPLICACAO){
+            b = getRandom(21);
         }
         else if(operacao == DueloActivity.OPERACAO_DIVISAO){
             if (a == 0){
@@ -38,6 +44,15 @@ public class NivelFacil extends INivel {
             }
 
         }
+
+        if(operacao == DueloActivity.OPERACAO_MULTIPLICACAO) {
+            int i = getRandom(2);
+            if (i == 1) {
+                int temp = a;
+                a = b;
+                b = temp;
+            }
+        }
     }
 
     @Override
@@ -52,7 +67,7 @@ public class NivelFacil extends INivel {
 
     public int getRandom(){
         Random random = new Random();
-        return random.nextInt(11);
+        return random.nextInt(31);
     }
 
     public int getRandom(int i){

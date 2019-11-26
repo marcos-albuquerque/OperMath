@@ -1,5 +1,7 @@
 package com.example.opermath.nivel;
 
+import com.example.opermath.DueloActivity;
+
 public abstract class INivel {
     protected int a;
     protected int b;
@@ -20,11 +22,18 @@ public abstract class INivel {
     public abstract int getRandom();
 
     public int answer (){
-        if(operacao == '+'){
+        if(operacao == DueloActivity.OPERACAO_ADICAO){
             return a + b;
         }
-        if(operacao == '-'){
+        if(operacao == DueloActivity.OPERACAO_SUBTRACAO){
             return  a - b;
+        }
+        if(operacao == DueloActivity.OPERACAO_MULTIPLICACAO){
+            return a * b;
+        }
+        if(operacao == DueloActivity.OPERACAO_DIVISAO){
+            return a / b;
+
         }
         return -1;
     }

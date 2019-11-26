@@ -77,7 +77,8 @@ public class SecondActivity extends AppCompatActivity {
                             intent.putExtra(RADICIACAO_SELECIONADO, radiciacao.isChecked());
                             intent.putExtra(FACIL_SELECIONADO, facil.isChecked());
                             intent.putExtra(MEDIO_SELECIONADO, medio.isChecked());
-                            intent.putExtra(DIVISAO_SELECIONADO, dificil.isChecked());
+                            intent.putExtra(DIFICIL_SELECIONADO, dificil.isChecked());
+                            //Toast.makeText(getApplicationContext(), "Divisão foi selecionado ." + divisao.isChecked(), Toast.LENGTH_LONG).show();
 
                             startActivity(intent);
                         }
