@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.opermath.nivel.INivel;
+import com.example.opermath.nivel.NivelDificil;
 import com.example.opermath.nivel.NivelFacil;
 import com.example.opermath.nivel.NivelMedio;
 
@@ -120,10 +121,10 @@ public class DueloActivity extends AppCompatActivity {
         else if(second.hasExtra(SecondActivity.MEDIO_SELECIONADO) && second.getBooleanExtra(SecondActivity.MEDIO_SELECIONADO, false) == true) {
             return new NivelMedio(operacao);
         }
+        else if(second.hasExtra(SecondActivity.DIFICIL_SELECIONADO) && second.getBooleanExtra(SecondActivity.DIFICIL_SELECIONADO, false) == true){
+            return new NivelDificil(operacao);
+        }
         return null;
-        //else if(second.hasExtra(SecondActivity.MEDIO_SELECIONADO) && second.getBooleanExtra(SecondActivity.MEDIO_SELECIONADO, false) == true){
-        //   nivel = new NivelMedio(operacao);
-        //}
     }
 
     private void addActionToButtons(){

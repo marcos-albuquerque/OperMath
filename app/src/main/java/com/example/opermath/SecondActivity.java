@@ -37,8 +37,6 @@ public class SecondActivity extends AppCompatActivity {
         final CheckBox subtracao = findViewById(R.id.checkBoxSubtracao);
         final CheckBox multiplicacao = findViewById(R.id.checkBoxMultiplicacao);
         final CheckBox divisao = findViewById(R.id.checkBoxDivisao);
-        final CheckBox potenciacao = findViewById(R.id.checkBoxPotenciacao);
-        final CheckBox radiciacao = findViewById(R.id.checkBoxRadiciacao);
         final Button buttonDuelar = findViewById(R.id.buttonDuelar);
         final RadioButton facil = findViewById(R.id.radioButtonFacil);
         final RadioButton medio = findViewById(R.id.radioButtonMedio);
@@ -63,8 +61,7 @@ public class SecondActivity extends AppCompatActivity {
                     public void onClick(View v) {
 
                         if ((adicao.isChecked() || subtracao.isChecked() ||
-                                multiplicacao.isChecked() || divisao.isChecked() ||
-                                potenciacao.isChecked() || radiciacao.isChecked()) && (facil.isChecked() || medio.isChecked()
+                                multiplicacao.isChecked() || divisao.isChecked()) && (facil.isChecked() || medio.isChecked()
                                 || dificil.isChecked()))
                         {
                             //Toast.makeText(getApplicationContext(), "Que o duelo comece!", Toast.LENGTH_LONG).show();
@@ -73,12 +70,10 @@ public class SecondActivity extends AppCompatActivity {
                             intent.putExtra(SUBTRACAO_SELECIONADO, subtracao.isChecked());
                             intent.putExtra(MULTIPLICACAO_SELECIONADO, multiplicacao.isChecked());
                             intent.putExtra(DIVISAO_SELECIONADO, divisao.isChecked());
-                            intent.putExtra(POTENCIACAO_SELECIONADO, potenciacao.isChecked());
-                            intent.putExtra(RADICIACAO_SELECIONADO, radiciacao.isChecked());
                             intent.putExtra(FACIL_SELECIONADO, facil.isChecked());
                             intent.putExtra(MEDIO_SELECIONADO, medio.isChecked());
                             intent.putExtra(DIFICIL_SELECIONADO, dificil.isChecked());
-                            //Toast.makeText(getApplicationContext(), "Divisão foi selecionado ." + divisao.isChecked(), Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getApplicationContext(), "Difícil foi verificado ." + dificil.isChecked(), Toast.LENGTH_LONG).show();
 
                             startActivity(intent);
                         }

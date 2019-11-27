@@ -6,20 +6,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class NivelFacil extends INivel {
-    public NivelFacil(char operacao) {
+public class NivelDificil extends INivel {
+    public NivelDificil(char operacao) {
         super(operacao);
         a = -1;
         if(operacao == DueloActivity.OPERACAO_ADICAO
-                || operacao == DueloActivity.OPERACAO_SUBTRACAO || operacao == DueloActivity.OPERACAO_MULTIPLICACAO
+                || operacao == DueloActivity.OPERACAO_SUBTRACAO
                 || operacao == DueloActivity.OPERACAO_DIVISAO){
-            a = getRandomNumber();
+            a = getRandomNumber(50, 100);
+        }
+        else if(operacao == DueloActivity.OPERACAO_MULTIPLICACAO){
+            a = getRandomNumber(10, 20);
         }
         //a = -1;
         b = -1;
         if(operacao == DueloActivity.OPERACAO_ADICAO
-                || operacao == DueloActivity.OPERACAO_SUBTRACAO || operacao == DueloActivity.OPERACAO_MULTIPLICACAO){
-            b = getRandomNumber();
+                || operacao == DueloActivity.OPERACAO_SUBTRACAO){
+            b = getRandomNumber(50, 100);
+        }
+        else if (operacao == DueloActivity.OPERACAO_MULTIPLICACAO){
+            b = getRandomNumber(10, 20);
         }
         else if(operacao == DueloActivity.OPERACAO_DIVISAO){
             if (a == 0){
@@ -56,10 +62,9 @@ public class NivelFacil extends INivel {
         return answer() + getRandomNumber(-10, 10);
     }
 
-
-    private int getRandomNumber(){
+    public int getRandomNumber(){
         Random random = new Random();
-        return random.nextInt(11);
+        return random.nextInt(31);
     }
 
     public int getRandomNumber(int i){

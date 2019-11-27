@@ -2,6 +2,8 @@ package com.example.opermath.nivel;
 
 import com.example.opermath.DueloActivity;
 
+import java.util.Random;
+
 public abstract class INivel {
     protected int a;
     protected int b;
@@ -38,4 +40,8 @@ public abstract class INivel {
         return -1;
     }
 
+    public int getRandomNumber(int a, int b){
+        Random random = new Random();
+        return random.nextInt(b-a) + a;
+    }
 }
