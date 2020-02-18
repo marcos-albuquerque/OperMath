@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.opermath.nivel.INivel;
 import com.example.opermath.nivel.NivelDificil;
@@ -17,10 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class DueloActivity extends AppCompatActivity {
-
-    public DueloActivity() {
-    }
+public class Praticar2Activity extends AppCompatActivity {
 
     private List<Character> operacoes = new ArrayList<>();
 
@@ -56,7 +52,7 @@ public class DueloActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_duelo);
+        setContentView(R.layout.activity_pratica2);
 
         placarj1 = findViewById(R.id.placarj1);
         operando1j1 = findViewById(R.id.operando1j1);
@@ -86,17 +82,17 @@ public class DueloActivity extends AppCompatActivity {
 
         Intent second = getIntent();
 
-        if(second.hasExtra(SecondActivity.ADICAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.ADICAO_SELECIONADO, false) == true) {
+        if (second.hasExtra(SecondActivity.ADICAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.ADICAO_SELECIONADO, false) == true) {
             //Toast.makeText(getApplicationContext(), "Adicao selecionado.", Toast.LENGTH_LONG).show();
             operacoes.add(OPERACAO_ADICAO);
         }
-        if(second.hasExtra(SecondActivity.SUBTRACAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.SUBTRACAO_SELECIONADO, false) == true) {
+        if (second.hasExtra(SecondActivity.SUBTRACAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.SUBTRACAO_SELECIONADO, false) == true) {
             operacoes.add(OPERACAO_SUBTRACAO);
         }
-        if(second.hasExtra(SecondActivity.MULTIPLICACAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.MULTIPLICACAO_SELECIONADO, false) == true) {
+        if (second.hasExtra(SecondActivity.MULTIPLICACAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.MULTIPLICACAO_SELECIONADO, false) == true) {
             operacoes.add(OPERACAO_MULTIPLICACAO);
         }
-        if(second.hasExtra(SecondActivity.DIVISAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.DIVISAO_SELECIONADO, false) == true) {
+        if (second.hasExtra(SecondActivity.DIVISAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.DIVISAO_SELECIONADO, false) == true) {
             operacoes.add(OPERACAO_DIVISAO);
         }
         //Toast.makeText(getApplicationContext(), "Divisão selecionado." + second.getBooleanExtra(SecondActivity.DIVISAO_SELECIONADO, false), Toast.LENGTH_LONG).show();
@@ -114,20 +110,18 @@ public class DueloActivity extends AppCompatActivity {
         nextProblem();
     }
 
-    private INivel getNewNivel(Intent second, char operacao){
-        if(second.hasExtra(SecondActivity.FACIL_SELECIONADO) && second.getBooleanExtra(SecondActivity.FACIL_SELECIONADO, false) == true) {
-            return  new NivelFacil(operacao);
-        }
-        else if(second.hasExtra(SecondActivity.MEDIO_SELECIONADO) && second.getBooleanExtra(SecondActivity.MEDIO_SELECIONADO, false) == true) {
+    private INivel getNewNivel(Intent second, char operacao) {
+        if (second.hasExtra(SecondActivity.FACIL_SELECIONADO) && second.getBooleanExtra(SecondActivity.FACIL_SELECIONADO, false) == true) {
+            return new NivelFacil(operacao);
+        } else if (second.hasExtra(SecondActivity.MEDIO_SELECIONADO) && second.getBooleanExtra(SecondActivity.MEDIO_SELECIONADO, false) == true) {
             return new NivelMedio(operacao);
-        }
-        else if(second.hasExtra(SecondActivity.DIFICIL_SELECIONADO) && second.getBooleanExtra(SecondActivity.DIFICIL_SELECIONADO, false) == true){
+        } else if (second.hasExtra(SecondActivity.DIFICIL_SELECIONADO) && second.getBooleanExtra(SecondActivity.DIFICIL_SELECIONADO, false) == true) {
             return new NivelDificil(operacao);
         }
         return null;
     }
 
-    private void addActionToButtons(){
+    private void addActionToButtons() {
         addEventToAnswer(answer1j1);
         addEventToAnswer(answer2j1);
         addEventToAnswer(answer3j1);
@@ -137,45 +131,42 @@ public class DueloActivity extends AppCompatActivity {
         addEventToAnswer(answer3j2);
     }
 
-    private void addEventToAnswer(final Button answer){
+    private void addEventToAnswer(final Button answer) {
         answer.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(answer.getText().equals(""+nivel.answer())){
-                            if(buttonListj1.contains(answer)) {
+                        if (answer.getText().equals("" + nivel.answer())) {
+                            if (buttonListj1.contains(answer)) {
                                 ponto1++;
                                 placarj1.setText("" + ponto1);
                                 nextProblem();
-                            }
-                            else{
+                            } else {
                                 ponto2++;
                                 placarj2.setText("" + ponto2);
                                 nextProblem();
                             }
-                           // Toast.makeText(getApplicationContext(), "Resposta correta selecionada.", Toast.LENGTH_LONG).show();
+                            // Toast.makeText(getApplicationContext(), "Resposta correta selecionada.", Toast.LENGTH_LONG).show();
                         } else {
-                            if(buttonListj1.contains(answer)) {
+                            if (buttonListj1.contains(answer)) {
                                 ponto1--;
                                 placarj1.setText("" + ponto1);
                                 nextProblem();
-                            }
-                            else{
+                            } else {
                                 ponto2--;
                                 placarj2.setText("" + ponto2);
                                 nextProblem();
                             }
                             //Toast.makeText(getApplicationContext(), "Resposta incorreta selecionada."+answer.getText(), Toast.LENGTH_LONG).show();
                         }
-                        if(ponto1 >= 2) {
+                        if (ponto1 >= 2) {
                             //Toast.makeText(getApplicationContext(), "O jogador 1 venceu!.", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(DueloActivity.this, VencedorActivity.class);
+                            Intent intent = new Intent(com.example.opermath.Praticar2Activity.this, VencedorActivity.class);
                             intent.putExtra(JOGADOR, 1);
                             startActivity(intent);
-                        }
-                        else if (ponto2 >= 2){
+                        } else if (ponto2 >= 2) {
                             //Toast.makeText(getApplicationContext(), "O jogador ic_launcher2 venceu!.", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(DueloActivity.this, VencedorActivity.class);
+                            Intent intent = new Intent(com.example.opermath.Praticar2Activity.this, VencedorActivity.class);
                             intent.putExtra(JOGADOR, 2);
                             startActivity(intent);
                         }
@@ -184,7 +175,7 @@ public class DueloActivity extends AppCompatActivity {
         );
     }
 
-    private void nextProblem(){
+    private void nextProblem() {
         Random random = new Random();
         char operacao = operacoes.get(random.nextInt(operacoes.size()));
         nivel = getNewNivel(getIntent(), operacao);
@@ -218,36 +209,36 @@ public class DueloActivity extends AppCompatActivity {
         viewList2.add(answer3j2);
 
 
-        if(indice == 0){
+        if (indice == 0) {
             answer1j1.setText("" + nivel.answer());
             answer1j2.setText("" + nivel.answer());
-            if(indice2 == 0){
+            if (indice2 == 0) {
                 primeiro = 2;
                 segundo = 3;
-            } else{
+            } else {
                 primeiro = 3;
                 segundo = 2;
             }
 
         }
-        if(indice == 1){
+        if (indice == 1) {
             answer2j1.setText("" + nivel.answer());
             answer2j2.setText("" + nivel.answer());
-            if(indice2 == 0){
+            if (indice2 == 0) {
                 primeiro = 1;
                 segundo = 3;
-            } else{
+            } else {
                 primeiro = 3;
                 segundo = 1;
             }
         }
-        if(indice == 2){
+        if (indice == 2) {
             answer3j1.setText("" + nivel.answer());
             answer3j2.setText("" + nivel.answer());
-            if(indice2 == 0){
+            if (indice2 == 0) {
                 primeiro = 1;
                 segundo = 2;
-            } else{
+            } else {
                 primeiro = 2;
                 segundo = 1;
             }
@@ -256,18 +247,19 @@ public class DueloActivity extends AppCompatActivity {
         valores.add(nivel.answer());
         INivel nivel2 = getNewNivel(getIntent(), operacao);
         int valor = nivel2.getRandom();
-        while(valores.contains(valor)){
+        while (valores.contains(valor)) {
             valor = nivel2.getRandom();
         }
         viewList.get(primeiro - 1).setText("" + valor);
-        viewList2.get(primeiro -1).setText("" + valor);
+        viewList2.get(primeiro - 1).setText("" + valor);
         valores.add(valor);
         valor = nivel2.getRandom();
-        while(valores.contains(valor)){
+        while (valores.contains(valor)) {
             valor = nivel2.getRandom();
         }
-        viewList.get(segundo -1).setText("" + valor);
-        viewList2.get(segundo -1).setText("" + valor);
+        viewList.get(segundo - 1).setText("" + valor);
+        viewList2.get(segundo - 1).setText("" + valor);
 
     }
+
 }

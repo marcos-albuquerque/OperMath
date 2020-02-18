@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Praticar2Activity">
+
+    <Button
+        android:id="@+id/answer2j"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="277dp" />
+
+    <Button
+        android:id="@+id/answer1j"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="277dp" />
+
+    <TextView
+        android:id="@+id/operando2j"
+        android:layout_width="41dp"
+        android:layout_height="52dp"
+        android:gravity="center"
+        android:text="0"
+        tools:layout_editor_absoluteX="257dp"
+        tools:layout_editor_absoluteY="136dp" />
+
+    <TextView
+        android:id="@+id/operadorj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="0"
+        tools:layout_editor_absoluteX="201dp"
+        tools:layout_editor_absoluteY="158dp" />
+
+    <TextView
+        android:id="@+id/operando1j"
+        android:layout_width="38dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="0"
+        tools:layout_editor_absoluteX="115dp"
+        tools:layout_editor_absoluteY="140dp" />
+
+    <TextView
+        android:id="@+id/placarj"
+        android:layout_width="91dp"
+        android:layout_height="24dp"
+        android:text="0"
+        tools:gravity="center"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="477dp" />
+
+    <Button
+        android:id="@+id/answer3j"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="277dp"
+        tools:layout_editor_absoluteY="277dp" />
+</android.support.constraint.ConstraintLayout>

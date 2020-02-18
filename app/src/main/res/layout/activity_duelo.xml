@@ -52,8 +52,8 @@
 
     <TextView
         android:id="@+id/operando1j1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="11dp"
+        android:layout_height="16dp"
         android:layout_marginBottom="40dp"
         android:gravity="center"
         android:text="0"

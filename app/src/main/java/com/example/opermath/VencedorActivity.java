@@ -37,4 +37,9 @@ public class VencedorActivity extends AppCompatActivity {
                 }
         );
     }
+    @Override
+    public void onBackPressed (){
+        Intent intent = new Intent(VencedorActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }
