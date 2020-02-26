@@ -1,6 +1,8 @@
 package com.example.opermath.nivel;
 
 import com.example.opermath.DueloActivity;
+import com.example.opermath.PraticarActivity;
+
 
 import java.util.Random;
 
@@ -24,16 +26,16 @@ public abstract class INivel {
     public abstract int getRandom();
 
     public int answer (){
-        if(operacao == DueloActivity.OPERACAO_ADICAO){
+        if(operacao == DueloActivity.OPERACAO_ADICAO || operacao == PraticarActivity.OPERACAO_ADICAO){
             return a + b;
         }
-        if(operacao == DueloActivity.OPERACAO_SUBTRACAO){
+        if(operacao == DueloActivity.OPERACAO_SUBTRACAO  || operacao == PraticarActivity.OPERACAO_SUBTRACAO){
             return  a - b;
         }
-        if(operacao == DueloActivity.OPERACAO_MULTIPLICACAO){
+        if(operacao == DueloActivity.OPERACAO_MULTIPLICACAO || operacao == PraticarActivity.OPERACAO_MULTIPLICACAO){
             return a * b;
         }
-        if(operacao == DueloActivity.OPERACAO_DIVISAO){
+        if(operacao == DueloActivity.OPERACAO_DIVISAO || operacao == PraticarActivity.OPERACAO_DIVISAO){
             return a / b;
 
         }

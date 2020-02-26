@@ -1,6 +1,7 @@
 package com.example.opermath.nivel;
 
 import com.example.opermath.DueloActivity;
+import com.example.opermath.PraticarActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,22 +13,30 @@ public class NivelDificil extends INivel {
         a = -1;
         if(operacao == DueloActivity.OPERACAO_ADICAO
                 || operacao == DueloActivity.OPERACAO_SUBTRACAO
-                || operacao == DueloActivity.OPERACAO_DIVISAO){
+                || operacao == DueloActivity.OPERACAO_DIVISAO ||
+           operacao == PraticarActivity.OPERACAO_ADICAO
+                || operacao == PraticarActivity.OPERACAO_SUBTRACAO
+                || operacao == PraticarActivity.OPERACAO_DIVISAO){
             a = getRandomNumber(50, 100);
         }
-        else if(operacao == DueloActivity.OPERACAO_MULTIPLICACAO){
+        else if(operacao == DueloActivity.OPERACAO_MULTIPLICACAO ||
+                operacao == PraticarActivity.OPERACAO_MULTIPLICACAO){
             a = getRandomNumber(10, 20);
         }
         //a = -1;
         b = -1;
         if(operacao == DueloActivity.OPERACAO_ADICAO
-                || operacao == DueloActivity.OPERACAO_SUBTRACAO){
+                || operacao == DueloActivity.OPERACAO_SUBTRACAO ||
+                operacao == PraticarActivity.OPERACAO_ADICAO
+                || operacao == PraticarActivity.OPERACAO_SUBTRACAO){
             b = getRandomNumber(50, 100);
         }
-        else if (operacao == DueloActivity.OPERACAO_MULTIPLICACAO){
+        else if (operacao == DueloActivity.OPERACAO_MULTIPLICACAO ||
+                operacao == PraticarActivity.OPERACAO_MULTIPLICACAO){
             b = getRandomNumber(10, 20);
         }
-        else if(operacao == DueloActivity.OPERACAO_DIVISAO){
+        else if(operacao == DueloActivity.OPERACAO_DIVISAO  ||
+                operacao == PraticarActivity.OPERACAO_DIVISAO){
             if (a == 0){
                 b = getRandomNumber();
             }

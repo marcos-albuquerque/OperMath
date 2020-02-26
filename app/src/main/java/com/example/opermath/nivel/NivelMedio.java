@@ -1,6 +1,7 @@
 package com.example.opermath.nivel;
 
 import com.example.opermath.DueloActivity;
+import com.example.opermath.PraticarActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,22 +13,31 @@ public class NivelMedio extends INivel {
         a = -1;
         if(operacao == DueloActivity.OPERACAO_ADICAO
                 || operacao == DueloActivity.OPERACAO_SUBTRACAO
-                || operacao == DueloActivity.OPERACAO_DIVISAO){
+                || operacao == DueloActivity.OPERACAO_DIVISAO ||
+           operacao == PraticarActivity.OPERACAO_ADICAO
+                || operacao == PraticarActivity.OPERACAO_SUBTRACAO
+                || operacao == PraticarActivity.OPERACAO_DIVISAO
+        ){
             a = getRandom();
         }
-        else if(operacao == DueloActivity.OPERACAO_MULTIPLICACAO){
+        else if(operacao == DueloActivity.OPERACAO_MULTIPLICACAO
+        || operacao == PraticarActivity.OPERACAO_MULTIPLICACAO){
             a = getRandom(11);
         }
         //a = -1;
         b = -1;
         if(operacao == DueloActivity.OPERACAO_ADICAO
-                || operacao == DueloActivity.OPERACAO_SUBTRACAO){
+                || operacao == DueloActivity.OPERACAO_SUBTRACAO ||
+           operacao == PraticarActivity.OPERACAO_ADICAO
+                || operacao == PraticarActivity.OPERACAO_SUBTRACAO){
             b = getRandom();
         }
-        else if (operacao == DueloActivity.OPERACAO_MULTIPLICACAO){
+        else if (operacao == DueloActivity.OPERACAO_MULTIPLICACAO ||
+                operacao == PraticarActivity.OPERACAO_MULTIPLICACAO){
             b = getRandom(21);
         }
-        else if(operacao == DueloActivity.OPERACAO_DIVISAO){
+        else if(operacao == DueloActivity.OPERACAO_DIVISAO ||
+                operacao == PraticarActivity.OPERACAO_DIVISAO){
             if (a == 0){
                 b = getRandom();
             }
@@ -45,9 +55,11 @@ public class NivelMedio extends INivel {
 
         }
 
-        if(operacao == DueloActivity.OPERACAO_MULTIPLICACAO) {
+        if(operacao == DueloActivity.OPERACAO_MULTIPLICACAO ||
+           operacao == PraticarActivity.OPERACAO_MULTIPLICACAO) {
             int i = getRandom(2);
-            if (i == 1) {
+            if (i == 1)
+            {
                 int temp = a;
                 a = b;
                 b = temp;

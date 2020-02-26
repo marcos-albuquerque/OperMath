@@ -6,161 +6,238 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.opermath.nivel.INivel;
+import com.example.opermath.nivel.NivelDificil;
 import com.example.opermath.nivel.NivelFacil;
+import com.example.opermath.nivel.NivelMedio;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class PraticarActivity extends AppCompatActivity {
+public class PraticarActivity extends AppCompatActivity
+{
+
+    public PraticarActivity()
+    {
+    }
 
     private List<Character> operacoes = new ArrayList<>();
 
-    private TextView placar;
+    public static String JOGADOR = "Jogador";
+    public static char OPERACAO_ADICAO = '+';
+    public static char OPERACAO_SUBTRACAO = '-';
+    public static char OPERACAO_MULTIPLICACAO = 'x';
+    public static char OPERACAO_DIVISAO = '/';
+
+    private TextView score;
     private TextView operando1;
     private TextView operando2;
     private TextView operador;
+
     private Button answer1;
     private Button answer2;
     private Button answer3;
     private int ponto1;
-    private int ponto2;
     private INivel nivel;
 
+    List<Button> buttonList;
+
+    private int pontop;
+    private INivel nivelp;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_duelo);
+        setContentView(R.layout.activity_praticar);
 
-        placar = findViewById(R.id.placarj1);
-        operando1 = findViewById(R.id.operando1j1);
-        operando2 = findViewById(R.id.operando2j1);
-        operador = findViewById(R.id.operadorj1);
-        answer1 = findViewById(R.id.answer1j1);
-        answer2 = findViewById(R.id.answer3j1);
-        answer3 = findViewById(R.id.answer2j1);
+        score = findViewById(R.id.score);
+        operando1 = findViewById(R.id.operando1);
+        operando2 = findViewById(R.id.operando2);
+        operador = findViewById(R.id.operador);
 
-        Intent second = getIntent();
+        answer1 = findViewById(R.id.answer1);
+        answer2 = findViewById(R.id.answer2);
+        answer3 = findViewById(R.id.answer3);
 
-        if(second.hasExtra(SecondActivity.ADICAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.ADICAO_SELECIONADO, false) == true) {
+        buttonList = new ArrayList<>();
+        buttonList.add(answer1);
+        buttonList.add(answer2);
+        buttonList.add(answer3);
+
+        Intent second2 = getIntent();
+
+        if(second2.hasExtra(Second2Activity.ADICAO_SELECIONADO) && second2.getBooleanExtra(Second2Activity.ADICAO_SELECIONADO, false) == true)
+        {
             //Toast.makeText(getApplicationContext(), "Adicao selecionado.", Toast.LENGTH_LONG).show();
-            operacoes.add('+');
+            operacoes.add(OPERACAO_ADICAO);
         }
-        if(second.hasExtra(SecondActivity.SUBTRACAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.SUBTRACAO_SELECIONADO, false) == true) {
-            operacoes.add('-');
+        if(second2.hasExtra(Second2Activity.SUBTRACAO_SELECIONADO) && second2.getBooleanExtra(Second2Activity.SUBTRACAO_SELECIONADO, false) == true)
+        {
+            operacoes.add(OPERACAO_SUBTRACAO);
         }
-        if(second.hasExtra(SecondActivity.MULTIPLICACAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.MULTIPLICACAO_SELECIONADO, false) == true) {
-            operacoes.add('x');
+        if(second2.hasExtra(Second2Activity.MULTIPLICACAO_SELECIONADO) && second2.getBooleanExtra(Second2Activity.MULTIPLICACAO_SELECIONADO, false) == true)
+        {
+            operacoes.add(OPERACAO_MULTIPLICACAO);
         }
-        if(second.hasExtra(SecondActivity.DIVISAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.DIVISAO_SELECIONADO, false) == true) {
-            operacoes.add('/');
+        if(second2.hasExtra(Second2Activity.DIVISAO_SELECIONADO) && second2.getBooleanExtra(Second2Activity.DIVISAO_SELECIONADO, false) == true)
+        {
+            operacoes.add(OPERACAO_DIVISAO);
         }
-        /*if(second.hasExtra(SecondActivity.POTENCIACAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.POTENCIACAO_SELECIONADO, false) == true) {
-            operacoes.add('^');
-        }
-        if(second.hasExtra(SecondActivity.RADICIACAO_SELECIONADO) && second.getBooleanExtra(SecondActivity.RADICIACAO_SELECIONADO, false) == true) {
-            operacoes.add('RAIZ');
-        }*/
-        ponto1 = 0;
-        ponto2 = 0;
-        placar.setText("" + 0);
-        addActionToButtons();
-        nextProblem();
 
+        //Toast.makeText(getApplicationContext(), "Divisão selecionado." + second2.getBooleanExtra(SecondActivity.DIVISAO_SELECIONADO, false), Toast.LENGTH_LONG).show();
 
+        pontop = 0;
+
+        score.setText("" + 0);
+        addActionToButtons2();
+        nextProblem2();
     }
 
-    private void addActionToButtons(){
-        addEventToAnswer(answer1);
-        addEventToAnswer(answer2);
-        addEventToAnswer(answer3);
+    private INivel getNewNivel(Intent second, char operacao)
+    {
+        if(second.hasExtra(SecondActivity.FACIL_SELECIONADO) && second.getBooleanExtra(SecondActivity.FACIL_SELECIONADO, false) == true)
+        {
+            return  new NivelFacil(operacao);
+        }
+        else if(second.hasExtra(SecondActivity.MEDIO_SELECIONADO) && second.getBooleanExtra(SecondActivity.MEDIO_SELECIONADO, false) == true)
+        {
+            return new NivelMedio(operacao);
+        }
+        else if(second.hasExtra(SecondActivity.DIFICIL_SELECIONADO) && second.getBooleanExtra(SecondActivity.DIFICIL_SELECIONADO, false) == true)
+        {
+            return new NivelDificil(operacao);
+        }
+        return null;
     }
 
-    private void addEventToAnswer(final Button answer){
+    private void addActionToButtons2()
+    {
+        addEventToAnswerP(answer1);
+        addEventToAnswerP(answer2);
+        addEventToAnswerP(answer3);
+    }
+
+    private void addEventToAnswerP(final Button answer)
+    {
         answer.setOnClickListener(
-                new View.OnClickListener() {
+                new View.OnClickListener()
+                {
                     @Override
-                    public void onClick(View v) {
-                        if(answer.getText().equals(""+nivel.answer())){
-                            ponto1 ++;
-                            placar.setText("" + ponto1);
-                            nextProblem();
-                           // Toast.makeText(getApplicationContext(), "Resposta correta selecionada.", Toast.LENGTH_LONG).show();
-                        } else {
-                            ponto1 --;
-                            placar.setText("" + ponto1);
-                            nextProblem();
+                    public void onClick(View v)
+                    {
+                        if(answer.getText().equals(""+nivel.answer()))
+                        {
+                            if(buttonList.contains(answer))
+                            {
+                                ponto1++;
+                                score.setText("" + ponto1);
+                                nextProblem2();
+                            }
+                            // Toast.makeText(getApplicationContext(), "Resposta correta selecionada.", Toast.LENGTH_LONG).show();
+                        } else
+                            {
+                            if(buttonList.contains(answer))
+                            {
+                                ponto1--;
+                                score.setText("" + ponto1);
+                                nextProblem2();
+                            }
                             //Toast.makeText(getApplicationContext(), "Resposta incorreta selecionada."+answer.getText(), Toast.LENGTH_LONG).show();
                         }
-
                     }
                 }
         );
     }
 
-    private void nextProblem(){
+    private void nextProblem2()
+    {
         Random random = new Random();
         char operacao = operacoes.get(random.nextInt(operacoes.size()));
-        nivel = new NivelFacil(operacao);
+        nivel = getNewNivel(getIntent(), operacao);
         //Toast.makeText(getApplicationContext(), "Adicao selecionado."+nivel.getA(), Toast.LENGTH_LONG).show();
 
-        operando1.setText("" + nivel.getA());
-        operando2.setText("" + nivel.getB());
-        operador.setText("" + nivel.getOperacao());
+
+        int a = nivel.getA();
+        int b = nivel.getB();
+        char operacaonivel = nivel.getOperacao();
+
+        operando1.setText("" + a);
+        operando2.setText("" + b);
+        operador.setText("" + operacaonivel);
 
         int indice = random.nextInt(3);
         int indice2 = random.nextInt(2);
-        Button primeiro = null;
-        Button segundo = null;
+        int primeiro = -1;
+        int segundo = -1;
 
+        List<Button> viewList = new ArrayList<>();
+        viewList.add(answer1);
+        viewList.add(answer2);
+        viewList.add(answer3);
 
-        if(indice == 0){
+        if(indice == 0)
+        {
             answer1.setText("" + nivel.answer());
-            if(indice2 == 0){
-                primeiro = answer2;
-                segundo = answer3;
-            } else{
-                primeiro = answer3;
-                segundo = answer2;
-            }
+            if(indice2 == 0)
+            {
+                primeiro = 2;
+                segundo = 3;
+            } else
+                {
+                primeiro = 3;
+                segundo = 2;
+                }
 
         }
-        if(indice == 1){
+        if(indice == 1)
+        {
             answer2.setText("" + nivel.answer());
-            if(indice2 == 0){
-                primeiro = answer1;
-                segundo = answer3;
-            } else{
-                primeiro = answer3;
-                segundo = answer1;
-            }
+            if(indice2 == 0)
+            {
+                primeiro = 1;
+                segundo = 3;
+            } else
+                {
+                primeiro = 3;
+                segundo = 1;
+                }
         }
-        if(indice == 2){
+        if(indice == 2)
+        {
             answer3.setText("" + nivel.answer());
-            if(indice2 == 0){
-                primeiro = answer1;
-                segundo = answer2;
-            } else{
-                primeiro = answer2;
-                segundo = answer1;
-            }
+            if(indice2 == 0)
+            {
+                primeiro = 1;
+                segundo = 2;
+            } else
+                {
+                primeiro = 2;
+                segundo = 1;
+                }
         }
         List<Integer> valores = new ArrayList<>();
         valores.add(nivel.answer());
-        INivel nivel2 = new NivelFacil(operacao);
-        int valor = nivel2.getA();
-        while(valores.contains(valor)){
-            valor = nivel2.getA();
-        }
-        primeiro.setText("" + valor);
-        valores.add(valor);
-        valor = nivel2.getA();
-        while(valores.contains(valor)){
-            valor = nivel2.getA();
-        }
-        segundo.setText("" + valor);
+        INivel nivel2 = getNewNivel(getIntent(), operacao);
+        int valor = nivel2.getRandom();
 
+        while(valores.contains(valor))
+        {
+            valor = nivel2.getRandom();
+        }
+
+        viewList.get(primeiro - 1).setText("" + valor);
+        valores.add(valor);
+        valor = nivel2.getRandom();
+
+        while(valores.contains(valor))
+        {
+            valor = nivel2.getRandom();
+        }
+
+        viewList.get(segundo -1).setText("" + valor);
     }
 }

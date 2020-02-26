@@ -114,7 +114,8 @@ public class DueloActivity extends AppCompatActivity {
         nextProblem();
     }
 
-    private INivel getNewNivel(Intent second, char operacao){
+    private INivel getNewNivel(Intent second, char operacao)
+    {
         if(second.hasExtra(SecondActivity.FACIL_SELECIONADO) && second.getBooleanExtra(SecondActivity.FACIL_SELECIONADO, false) == true) {
             return  new NivelFacil(operacao);
         }
@@ -184,7 +185,8 @@ public class DueloActivity extends AppCompatActivity {
         );
     }
 
-    private void nextProblem(){
+    private void nextProblem()
+    {
         Random random = new Random();
         char operacao = operacoes.get(random.nextInt(operacoes.size()));
         nivel = getNewNivel(getIntent(), operacao);

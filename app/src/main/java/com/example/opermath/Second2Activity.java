@@ -10,7 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-public class SecondActivity extends AppCompatActivity {
+public class Second2Activity extends AppCompatActivity {
 
     public static String ADICAO_SELECIONADO = "ADICAO_SELECIONADO";
     public static String SUBTRACAO_SELECIONADO = "SUBTRACAO_SELECIONADO";
@@ -22,15 +22,11 @@ public class SecondActivity extends AppCompatActivity {
     public static String MEDIO_SELECIONADO = "MEDIO_SELECIONADO";
     public static String DIFICIL_SELECIONADO = "DIFICIL_SELECIONADO";
 
-    // private TextView primeiroTextView;
-    // private TextView segundoTextView;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_second2);
 
         final RadioGroup radioGroup = findViewById(R.id.radioGroup);
         final CheckBox adicao = findViewById(R.id.checkBoxAdicao);
@@ -43,18 +39,6 @@ public class SecondActivity extends AppCompatActivity {
         final RadioButton dificil = findViewById(R.id.radioButtonDificil);
         final Button iniciar = findViewById(R.id.buttonIniciar);
 
-      /*  primeiroTextView = (TextView) findViewById(R.id.textView);
-        Random aleatorio1 = new Random ();
-        int v1 = aleatorio1.nextInt(10);
-
-        primeiroTextView.setText(v1+"");
-
-        segundoTextView = (TextView) findViewById(R.id.textView2);
-        Random aleatorio2 = new Random ();
-        int v2 = aleatorio2.nextInt(10);
-
-        segundoTextView.setText(v2+""); */
-
         buttonIniciar.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -65,7 +49,7 @@ public class SecondActivity extends AppCompatActivity {
                                 || dificil.isChecked()))
                         {
                             //Toast.makeText(getApplicationContext(), "Que o duelo comece!", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent( SecondActivity.this, DueloActivity.class);
+                            Intent intent = new Intent( Second2Activity.this, PraticarActivity.class);
                             intent.putExtra(ADICAO_SELECIONADO, adicao.isChecked());
                             intent.putExtra(SUBTRACAO_SELECIONADO, subtracao.isChecked());
                             intent.putExtra(MULTIPLICACAO_SELECIONADO, multiplicacao.isChecked());
@@ -83,64 +67,5 @@ public class SecondActivity extends AppCompatActivity {
                     }
                 }
         );
-
-      /*  if (adicao.isSelected() || subtracao.isSelected() || multiplicacao.isSelected() ||
-                divisao.isSelected() || potenciacao.isSelected() || radiciacao.isSelected()) {
-            buttonDuelar.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-
-                            Intent intent = new Intent(SecondActivity.this, DueloActivity.class);
-                            startActivity(intent);
-
-                        }
-                    }
-            );
-        } */
     }
-
-
-      /*  buttonDuelar.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        abrirTelaDuelo();
-                        if ((adicao.isSelected() || subtracao.isSelected() ||
-                                multiplicacao.isSelected() || divisao.isSelected() ||
-                                potenciacao.isSelected() || radiciacao.isSelected()) && (facil.isSelected() || medio.isSelected()
-                                || dificil.isSelected()))
-                        {
-                            buttonDuelar.setOnClickListener(
-                                    new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            Intent intent = new Intent( SecondActivity.this, DueloActivity.class);
-                                            startActivity(intent);
-                                        }
-                                    }
-                            );
-                        }
-
-                        //Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                        //startActivity(intent);
-                    }
-                }
-
-
-   }*/
-/*
-    private void abrirTelaDuelo ()
-   {
-        if (adicao.isSelected() || subtracao.isSelected() ||
-                multiplicacao.isSelected() || divisao.isSelected() ||
-                potenciacao.isSelected() || radiciacao.isSelected()) {
-
-        }
-        else {
-            Toast.makeText(getApplicationContext(), "Selecione pelo menos uma operação.", Toast.LENGTH_LONG).show();
-        }
-
-}
-*/
 }
