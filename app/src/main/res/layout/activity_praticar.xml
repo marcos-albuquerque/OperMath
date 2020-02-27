@@ -80,4 +80,14 @@
         android:text="operando2"
         app:layout_constraintBaseline_toBaselineOf="@+id/operador"
         app:layout_constraintStart_toEndOf="@+id/operador" />
+
+    <ProgressBar
+        android:id="@+id/regressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

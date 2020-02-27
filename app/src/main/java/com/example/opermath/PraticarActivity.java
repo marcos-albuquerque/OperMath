@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,8 @@ import com.example.opermath.nivel.NivelMedio;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class PraticarActivity extends AppCompatActivity
 {
@@ -42,6 +45,9 @@ public class PraticarActivity extends AppCompatActivity
     private Button answer3;
     private int ponto1;
     private INivel nivel;
+
+    ProgressBar regressBar;
+    int counter = 100;
 
     List<Button> buttonList;
 
@@ -94,7 +100,33 @@ public class PraticarActivity extends AppCompatActivity
 
         score.setText("" + 0);
         addActionToButtons2();
-        nextProblem2();
+        nextProblem();
+        regress();
+    }
+
+    public void regress()
+    {
+        regressBar = (ProgressBar) findViewById(R.id.regressBar);
+
+        final Timer t = new Timer();
+        TimerTask tt = new TimerTask()
+        {
+            @Override
+            public void run()
+            {
+                counter--;
+                regressBar.setProgress(counter);
+
+                if(counter == 0)
+                {
+                    Intent intent2 = new Intent(PraticarActivity.this, GameOverActivity.class);
+                    startActivity(intent2);
+                    t.cancel();
+                }
+            }
+        };
+
+        t.schedule(tt, 0, 100);
     }
 
     private INivel getNewNivel(Intent second, char operacao)
@@ -135,7 +167,8 @@ public class PraticarActivity extends AppCompatActivity
                             {
                                 ponto1++;
                                 score.setText("" + ponto1);
-                                nextProblem2();
+                                counter= counter + 10;
+                                nextProblem();
                             }
                             // Toast.makeText(getApplicationContext(), "Resposta correta selecionada.", Toast.LENGTH_LONG).show();
                         } else
@@ -144,7 +177,7 @@ public class PraticarActivity extends AppCompatActivity
                             {
                                 ponto1--;
                                 score.setText("" + ponto1);
-                                nextProblem2();
+                                nextProblem();
                             }
                             //Toast.makeText(getApplicationContext(), "Resposta incorreta selecionada."+answer.getText(), Toast.LENGTH_LONG).show();
                         }
@@ -153,7 +186,7 @@ public class PraticarActivity extends AppCompatActivity
         );
     }
 
-    private void nextProblem2()
+    private void nextProblem()
     {
         Random random = new Random();
         char operacao = operacoes.get(random.nextInt(operacoes.size()));
