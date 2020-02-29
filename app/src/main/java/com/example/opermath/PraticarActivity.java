@@ -167,7 +167,7 @@ public class PraticarActivity extends AppCompatActivity
                             {
                                 ponto1++;
                                 score.setText("" + ponto1);
-                                counter= counter + 10;
+                                counter= counter + 15;
                                 nextProblem();
                             }
                             // Toast.makeText(getApplicationContext(), "Resposta correta selecionada.", Toast.LENGTH_LONG).show();

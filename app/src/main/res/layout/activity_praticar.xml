@@ -18,45 +18,55 @@
 
     <Button
         android:id="@+id/answer2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="answer2"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:text="R2"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/answer3"
         app:layout_constraintStart_toEndOf="@+id/answer1"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/custon_button"
+        android:textAllCaps="false"/>
 
     <Button
         android:id="@+id/answer1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_marginStart="19dp"
         android:layout_marginLeft="19dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:text="answer1"
+        android:text="R1"
+        android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/answer2"
         app:layout_constraintEnd_toStartOf="@+id/answer2"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/custon_button"
+        android:textAllCaps="false"/>
 
     <Button
         android:id="@+id/answer3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
-        android:text="answer3"
+        android:text="R3"
+        android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/answer2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/answer2" />
+        app:layout_constraintStart_toEndOf="@+id/answer2"
+        android:background="@drawable/custon_button"
+        android:textAllCaps="false"/>
 
     <TextView
         android:id="@+id/operador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="90dp"
-        android:text="operador"
+        android:text="op1"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/answer2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -67,17 +77,19 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
-        android:text="operando1"
+        android:text="oprn1"
+        android:textSize="40sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/operador"
         app:layout_constraintEnd_toStartOf="@+id/operador" />
 
     <TextView
         android:id="@+id/operando2"
-        android:layout_width="68dp"
-        android:layout_height="19dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:text="operando2"
+        android:text="oprn2"
+        android:textSize="40sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/operador"
         app:layout_constraintStart_toEndOf="@+id/operador" />
 
@@ -85,8 +97,8 @@
         android:id="@+id/regressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

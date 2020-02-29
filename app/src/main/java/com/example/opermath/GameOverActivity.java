@@ -1,15 +1,17 @@
 package com.example.opermath;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GameOverActivity extends AppCompatActivity {
 
     private TextView gameOver;
     private TextView showScore;
-    private TextView scoreValue;
 
     private Button inicio;
     private Button jogarNov;
@@ -22,10 +24,37 @@ public class GameOverActivity extends AppCompatActivity {
 
         gameOver = findViewById(R.id.gameOver);
         showScore = findViewById(R.id.showScore);
-        scoreValue = findViewById(R.id.scoreValue);
 
         inicio = findViewById(R.id.inicio);
         jogarNov = findViewById(R.id.jogarNov);
 
+        inicio.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                            Intent intent = new Intent( GameOverActivity.this, MainActivity.class);
+                            startActivity(intent);
+                    }
+                }
+        );
+        jogarNov.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent = new Intent( GameOverActivity.this, Second2Activity.class);
+                        startActivity(intent);
+                    }
+                }
+        );
+
+    }
+    @Override
+    public void onBackPressed (){
+        Intent intent = new Intent(GameOverActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }

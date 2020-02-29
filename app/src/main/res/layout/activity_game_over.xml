@@ -10,9 +10,11 @@
         android:id="@+id/gameOver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
         android:text="Game Over"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/showScore"
+        android:layout_marginBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,46 +24,33 @@
         android:id="@+id/showScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
+        android:layout_marginBottom="140dp"
         android:text="Score: "
-        app:layout_constraintEnd_toStartOf="@+id/scoreValue"
+        app:layout_constraintBottom_toTopOf="@+id/jogarNov"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gameOver" />
 
     <Button
-        android:id="@+id/inicio"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:text="Tela Inicial"
-        app:layout_constraintBottom_toBottomOf="@+id/jogarNov"
-        app:layout_constraintEnd_toStartOf="@+id/jogarNov"
+        android:id="@+id/jogarNov"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:text="Jogar Novamente"
+        app:layout_constraintBottom_toTopOf="@+id/inicio"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/jogarNov" />
+        app:layout_constraintTop_toBottomOf="@+id/showScore" />
 
     <Button
-        android:id="@+id/jogarNov"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginRight="23dp"
-        android:layout_marginBottom="14dp"
-        android:text="Jogar Novamente"
+        android:id="@+id/inicio"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:text="Menu Inicial"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/inicio" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jogarNov" />
 
-    <TextView
-        android:id="@+id/scoreValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="94dp"
-        android:layout_marginLeft="94dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/showScore"
-        app:layout_constraintStart_toStartOf="@+id/gameOver" />
 </android.support.constraint.ConstraintLayout>
