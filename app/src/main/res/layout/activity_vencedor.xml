@@ -10,20 +10,45 @@
         android:id="@+id/vencedorMensagem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="210dp"
+        android:fontFamily="sans-serif-black"
         android:text="O jogador X venceu!"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/jogarNovamente"
-        app:layout_constraintEnd_toEndOf="@+id/jogarNovamente" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/jogarNovamente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jogar novamente"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/custon_button"
+        android:text="Jogar Novamente"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/backMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/backMenu"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/custon_button"
+        android:text="Menu Inicial"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </android.support.constraint.ConstraintLayout>

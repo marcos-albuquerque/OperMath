@@ -168,13 +168,13 @@ public class DueloActivity extends AppCompatActivity {
                             }
                             //Toast.makeText(getApplicationContext(), "Resposta incorreta selecionada."+answer.getText(), Toast.LENGTH_LONG).show();
                         }
-                        if(ponto1 >= 2) {
+                        if(ponto1 >= 10) {
                             //Toast.makeText(getApplicationContext(), "O jogador 1 venceu!.", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(DueloActivity.this, VencedorActivity.class);
                             intent.putExtra(JOGADOR, 1);
                             startActivity(intent);
                         }
-                        else if (ponto2 >= 2){
+                        else if (ponto2 >= 10){
                             //Toast.makeText(getApplicationContext(), "O jogador ic_launcher2 venceu!.", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(DueloActivity.this, VencedorActivity.class);
                             intent.putExtra(JOGADOR, 2);

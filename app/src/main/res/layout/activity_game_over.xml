@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="140dp"
-        android:text="Score: "
+        android:text="Score: ainda vou colocar"
         app:layout_constraintBottom_toTopOf="@+id/jogarNov"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,10 +33,12 @@
 
     <Button
         android:id="@+id/jogarNov"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/custon_button"
         android:text="Jogar Novamente"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/inicio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,10 +46,12 @@
 
     <Button
         android:id="@+id/inicio"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/custon_button"
         android:text="Menu Inicial"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

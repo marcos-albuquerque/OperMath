@@ -1,5 +1,7 @@
 package com.example.opermath;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -57,10 +59,35 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    /*@Override
+    @Override
     public void onBackPressed()
     {
-        if(!isUserClickBackButton)
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("Você tem certeza que quer sair?")
+                .setCancelable(false)
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //MainActivity.super.onBackPressed();
+                        moveTaskToBack(true);
+                        android.os.Process.killProcess(android.os.Process.myPid());
+                        System.exit(1);
+                    }
+                })
+
+                .setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+
+        /*if(!isUserClickBackButton)
         {
             Toast.makeText(this, "Pressione volta de novo para sair", Toast.LENGTH_LONG).show();
             isUserClickBackButton = true;
@@ -78,11 +105,11 @@ public class MainActivity extends AppCompatActivity {
             public void onFinish() {
                 isUserClickBackButton = false;
             }
-        }.start();
-    }*/
+        }.start(); */
+    }
 
-    @Override
-    public void onBackPressed()
+    /*@Override
+    public void onBackPressed() // Preciso melhorar
     {
         if(backPressedTime + 1500 > System.currentTimeMillis())
         {
@@ -97,5 +124,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
         backPressedTime = System.currentTimeMillis();
-    }
+    }*/ // Quando o app é aberto novamente, ele não abre na MainActivity
 }

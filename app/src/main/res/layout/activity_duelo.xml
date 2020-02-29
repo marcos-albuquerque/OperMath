@@ -14,8 +14,8 @@
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
         android:background="@drawable/custon_button"
-        android:text="R2"
         android:textAllCaps="false"
+        android:text="R2"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/answer3j1"
         app:layout_constraintStart_toEndOf="@+id/answer1j1"
@@ -107,8 +107,8 @@
 
     <TextView
         android:id="@+id/placarj1"
-        android:layout_width="20dp"
-        android:layout_height="46dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="32dp"
         android:text="0"
@@ -213,7 +213,7 @@
     <TextView
         android:id="@+id/placarj2"
         android:layout_width="wrap_content"
-        android:layout_height="46dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="29dp"

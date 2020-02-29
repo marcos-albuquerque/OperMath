@@ -11,6 +11,7 @@ public class VencedorActivity extends AppCompatActivity {
 
     private TextView vencendorMensagem;
     private  Button jogarNovamente;
+    private Button backMenu;
 
 
     @Override
@@ -20,6 +21,7 @@ public class VencedorActivity extends AppCompatActivity {
 
         vencendorMensagem = findViewById(R.id.vencedorMensagem);
         jogarNovamente = findViewById(R.id.jogarNovamente);
+        backMenu = findViewById(R.id.backMenu);
 
         Intent intent = getIntent();
         if(intent.hasExtra(DueloActivity.JOGADOR)) {
@@ -36,6 +38,17 @@ public class VencedorActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        backMenu.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(VencedorActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                }
+        );
+
     }
     @Override
     public void onBackPressed (){

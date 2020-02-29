@@ -100,6 +100,12 @@ public class SecondActivity extends AppCompatActivity {
         } */
     }
 
+    @Override
+    public void onBackPressed (){
+        Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
 
       /*  buttonDuelar.setOnClickListener(
                 new View.OnClickListener() {
