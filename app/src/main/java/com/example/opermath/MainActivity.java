@@ -3,6 +3,7 @@ package com.example.opermath;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private Button praticarButton;
     private Button aprenderButton;
 
+    MediaPlayer mediaPlayer;
+
     private long backPressedTime;
     //private boolean isUserClickBackButton = false;
 
@@ -28,11 +31,12 @@ public class MainActivity extends AppCompatActivity {
         praticarButton = (Button) findViewById(R.id.button2);
         aprenderButton = (Button) findViewById(R.id.button3);
 
+        mediaPlayer = MediaPlayer.create(this, R.raw.sound);
 
-        duelarButton.setOnClickListener(
-                new View.OnClickListener() {
+        duelarButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        mediaPlayer.start();
                         Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                         startActivity(intent);
                     }
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        mediaPlayer.start();
                         Intent intent = new Intent(MainActivity.this, Second2Activity.class);
                         startActivity(intent);
                     }
@@ -52,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        mediaPlayer.start();
                         Intent intent = new Intent(MainActivity.this, AprenderActivity.class);
                         startActivity(intent);
                     }

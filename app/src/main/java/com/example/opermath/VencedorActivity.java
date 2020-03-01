@@ -1,6 +1,7 @@
 package com.example.opermath;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ public class VencedorActivity extends AppCompatActivity {
     private  Button jogarNovamente;
     private Button backMenu;
 
+    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,8 @@ public class VencedorActivity extends AppCompatActivity {
         vencendorMensagem = findViewById(R.id.vencedorMensagem);
         jogarNovamente = findViewById(R.id.jogarNovamente);
         backMenu = findViewById(R.id.backMenu);
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.sound);
 
         Intent intent = getIntent();
         if(intent.hasExtra(DueloActivity.JOGADOR)) {
@@ -33,6 +37,7 @@ public class VencedorActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        mediaPlayer.start();
                         Intent intent = new Intent(VencedorActivity.this, SecondActivity.class);
                         startActivity(intent);
                     }
@@ -43,6 +48,7 @@ public class VencedorActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        mediaPlayer.start();
                         Intent intent = new Intent(VencedorActivity.this, MainActivity.class);
                         startActivity(intent);
                     }

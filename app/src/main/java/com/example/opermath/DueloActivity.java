@@ -1,6 +1,7 @@
 package com.example.opermath;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -46,6 +47,9 @@ public class DueloActivity extends AppCompatActivity {
     private Button answer3j1;
     private Button answer3j2;
 
+    MediaPlayer mediaPlayer3;
+    MediaPlayer mediaPlayer4;
+
     List<Button> buttonListj1;
     List<Button> buttonListj2; //*
 
@@ -83,6 +87,9 @@ public class DueloActivity extends AppCompatActivity {
         buttonListj2.add(answer1j2);
         buttonListj2.add(answer2j2);
         buttonListj2.add(answer3j2);
+
+        mediaPlayer3 = MediaPlayer.create(this, R.raw.correct);
+        mediaPlayer4 = MediaPlayer.create(this, R.raw.erro);
 
         Intent second = getIntent();
 
@@ -143,7 +150,11 @@ public class DueloActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(answer.getText().equals(""+nivel.answer())){
+                        if(answer.getText().equals(""+nivel.answer()))
+                        {
+
+                            mediaPlayer3.start();
+
                             if(buttonListj1.contains(answer)) {
                                 ponto1++;
                                 placarj1.setText("" + ponto1);
@@ -155,19 +166,23 @@ public class DueloActivity extends AppCompatActivity {
                                 nextProblem();
                             }
                            // Toast.makeText(getApplicationContext(), "Resposta correta selecionada.", Toast.LENGTH_LONG).show();
-                        } else {
-                            if(buttonListj1.contains(answer)) {
-                                ponto1--;
-                                placarj1.setText("" + ponto1);
-                                nextProblem();
+                        } else
+                            {
+                                mediaPlayer4.start();
+
+                                if(buttonListj1.contains(answer)) {
+                                    ponto1--;
+                                    placarj1.setText("" + ponto1);
+                                    nextProblem();
+                                }
+                                else
+                                    {
+                                        ponto2--;
+                                        placarj2.setText("" + ponto2);
+                                        nextProblem();
+                                    }
+                                //Toast.makeText(getApplicationContext(), "Resposta incorreta selecionada."+answer.getText(), Toast.LENGTH_LONG).show();
                             }
-                            else{
-                                ponto2--;
-                                placarj2.setText("" + ponto2);
-                                nextProblem();
-                            }
-                            //Toast.makeText(getApplicationContext(), "Resposta incorreta selecionada."+answer.getText(), Toast.LENGTH_LONG).show();
-                        }
                         if(ponto1 >= 10) {
                             //Toast.makeText(getApplicationContext(), "O jogador 1 venceu!.", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(DueloActivity.this, VencedorActivity.class);

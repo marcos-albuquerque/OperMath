@@ -1,6 +1,7 @@
 package com.example.opermath;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,6 +23,9 @@ public class SecondActivity extends AppCompatActivity {
     public static String MEDIO_SELECIONADO = "MEDIO_SELECIONADO";
     public static String DIFICIL_SELECIONADO = "DIFICIL_SELECIONADO";
 
+    MediaPlayer mediaPlayer;
+    MediaPlayer mediaPlayer2;
+
     // private TextView primeiroTextView;
     // private TextView segundoTextView;
 
@@ -42,6 +46,9 @@ public class SecondActivity extends AppCompatActivity {
         final RadioButton medio = findViewById(R.id.radioButtonMedio);
         final RadioButton dificil = findViewById(R.id.radioButtonDificil);
         final Button iniciar = findViewById(R.id.buttonIniciar);
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.sound);
+        mediaPlayer2 = MediaPlayer.create(this, R.raw.sound2);
 
       /*  primeiroTextView = (TextView) findViewById(R.id.textView);
         Random aleatorio1 = new Random ();
@@ -65,6 +72,7 @@ public class SecondActivity extends AppCompatActivity {
                                 || dificil.isChecked()))
                         {
                             //Toast.makeText(getApplicationContext(), "Que o duelo comece!", Toast.LENGTH_LONG).show();
+                            mediaPlayer.start();
                             Intent intent = new Intent( SecondActivity.this, DueloActivity.class);
                             intent.putExtra(ADICAO_SELECIONADO, adicao.isChecked());
                             intent.putExtra(SUBTRACAO_SELECIONADO, subtracao.isChecked());
@@ -78,6 +86,7 @@ public class SecondActivity extends AppCompatActivity {
                             startActivity(intent);
                         }
                         else {
+                            mediaPlayer2.start();
                             Toast.makeText(getApplicationContext(), "Selecione um nível e pelo menos uma operação.", Toast.LENGTH_LONG).show();
                         }
                     }

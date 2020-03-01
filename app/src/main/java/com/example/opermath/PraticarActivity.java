@@ -1,6 +1,7 @@
 package com.example.opermath;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -49,6 +50,9 @@ public class PraticarActivity extends AppCompatActivity
     ProgressBar regressBar;
     int counter = 100;
 
+    MediaPlayer mediaPlayer3;
+    MediaPlayer mediaPlayer4;
+
     List<Button> buttonList;
 
     private int pontop;
@@ -73,6 +77,9 @@ public class PraticarActivity extends AppCompatActivity
         buttonList.add(answer1);
         buttonList.add(answer2);
         buttonList.add(answer3);
+
+        mediaPlayer3 = MediaPlayer.create(this, R.raw.correct);
+        mediaPlayer4 = MediaPlayer.create(this, R.raw.erro);
 
         Intent second2 = getIntent();
 
@@ -163,6 +170,8 @@ public class PraticarActivity extends AppCompatActivity
                     {
                         if(answer.getText().equals(""+nivel.answer()))
                         {
+                            mediaPlayer3.start();
+
                             if(buttonList.contains(answer))
                             {
                                 ponto1++;
@@ -173,14 +182,16 @@ public class PraticarActivity extends AppCompatActivity
                             // Toast.makeText(getApplicationContext(), "Resposta correta selecionada.", Toast.LENGTH_LONG).show();
                         } else
                             {
-                            if(buttonList.contains(answer))
-                            {
-                                ponto1--;
-                                score.setText("" + ponto1);
-                                nextProblem();
+                                mediaPlayer4.start();
+
+                                if(buttonList.contains(answer))
+                                {
+                                    ponto1--;
+                                    score.setText("" + ponto1);
+                                    nextProblem();
+                                }
+                                //Toast.makeText(getApplicationContext(), "Resposta incorreta selecionada."+answer.getText(), Toast.LENGTH_LONG).show();
                             }
-                            //Toast.makeText(getApplicationContext(), "Resposta incorreta selecionada."+answer.getText(), Toast.LENGTH_LONG).show();
-                        }
                     }
                 }
         );
