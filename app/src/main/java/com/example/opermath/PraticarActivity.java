@@ -1,5 +1,7 @@
 package com.example.opermath;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -55,8 +57,8 @@ public class PraticarActivity extends AppCompatActivity
 
     List<Button> buttonList;
 
-    private int pontop;
-    private INivel nivelp;
+    int ponto;
+    ///private INivel nivelp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -64,7 +66,7 @@ public class PraticarActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_praticar);
 
-        score = findViewById(R.id.score);
+        score = (TextView) findViewById(R.id.score);
         operando1 = findViewById(R.id.operando1);
         operando2 = findViewById(R.id.operando2);
         operador = findViewById(R.id.operador);
@@ -78,7 +80,7 @@ public class PraticarActivity extends AppCompatActivity
         buttonList.add(answer2);
         buttonList.add(answer3);
 
-        mediaPlayer3 = MediaPlayer.create(this, R.raw.correct);
+        mediaPlayer3 = MediaPlayer.create(this, R.raw.correct2);
         mediaPlayer4 = MediaPlayer.create(this, R.raw.erro);
 
         Intent second2 = getIntent();
@@ -103,7 +105,7 @@ public class PraticarActivity extends AppCompatActivity
 
         //Toast.makeText(getApplicationContext(), "Divisão selecionado." + second2.getBooleanExtra(SecondActivity.DIVISAO_SELECIONADO, false), Toast.LENGTH_LONG).show();
 
-        pontop = 0;
+        ponto = 0;
 
         score.setText("" + 0);
         addActionToButtons2();
@@ -124,9 +126,17 @@ public class PraticarActivity extends AppCompatActivity
                 counter--;
                 regressBar.setProgress(counter);
 
+                int record = Integer.parseInt(score.getText().toString());
+
                 if(counter == 0)
                 {
                     Intent intent2 = new Intent(PraticarActivity.this, GameOverActivity.class);
+                    Bundle parametros = new Bundle();
+
+                    parametros.putInt("key_record", record);
+
+                    intent2.putExtras(parametros);
+
                     startActivity(intent2);
                     t.cancel();
                 }
@@ -174,8 +184,8 @@ public class PraticarActivity extends AppCompatActivity
 
                             if(buttonList.contains(answer))
                             {
-                                ponto1++;
-                                score.setText("" + ponto1);
+                                ponto++;
+                                score.setText("" + ponto);
                                 counter= counter + 15;
                                 nextProblem();
                             }
@@ -186,8 +196,8 @@ public class PraticarActivity extends AppCompatActivity
 
                                 if(buttonList.contains(answer))
                                 {
-                                    ponto1--;
-                                    score.setText("" + ponto1);
+                                    ponto--;
+                                    score.setText("" + ponto);
                                     nextProblem();
                                 }
                                 //Toast.makeText(getApplicationContext(), "Resposta incorreta selecionada."+answer.getText(), Toast.LENGTH_LONG).show();
@@ -284,4 +294,36 @@ public class PraticarActivity extends AppCompatActivity
 
         viewList.get(segundo -1).setText("" + valor);
     }
+
+    @Override
+    public void onBackPressed()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("Você tem certeza que quer parar de praticar?")
+                .setCancelable(false)
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i)
+                    {
+                        Intent intent = new Intent(PraticarActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                    }
+                })
+
+                .setNegativeButton("Não", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i)
+                    {
+                        dialogInterface.cancel();
+                    }
+                });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+    }
+
 }

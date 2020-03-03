@@ -1,5 +1,7 @@
 package com.example.opermath;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -88,7 +90,7 @@ public class DueloActivity extends AppCompatActivity {
         buttonListj2.add(answer2j2);
         buttonListj2.add(answer3j2);
 
-        mediaPlayer3 = MediaPlayer.create(this, R.raw.correct);
+        mediaPlayer3 = MediaPlayer.create(this, R.raw.correct2);
         mediaPlayer4 = MediaPlayer.create(this, R.raw.erro);
 
         Intent second = getIntent();
@@ -119,6 +121,37 @@ public class DueloActivity extends AppCompatActivity {
         placarj2.setText("" + 0);
         addActionToButtons();
         nextProblem();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("Você tem certeza que deseja abandonar o duelo?")
+                .setCancelable(false)
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i)
+                    {
+                        Intent intent = new Intent(DueloActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                    }
+                })
+
+                .setNegativeButton("Não", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i)
+                    {
+                        dialogInterface.cancel();
+                    }
+                });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
     }
 
     private INivel getNewNivel(Intent second, char operacao)

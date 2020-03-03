@@ -49,7 +49,7 @@ public class VencedorActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         mediaPlayer.start();
-                        Intent intent = new Intent(VencedorActivity.this, MainActivity.class);
+                        Intent intent = new Intent(VencedorActivity.this, HomeActivity.class);
                         startActivity(intent);
                     }
                 }
@@ -58,7 +58,7 @@ public class VencedorActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed (){
-        Intent intent = new Intent(VencedorActivity.this, MainActivity.class);
+        Intent intent = new Intent(VencedorActivity.this, HomeActivity.class);
         startActivity(intent);
     }
 }

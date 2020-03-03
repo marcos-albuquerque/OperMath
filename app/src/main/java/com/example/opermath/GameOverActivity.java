@@ -32,6 +32,14 @@ public class GameOverActivity extends AppCompatActivity {
 
         mediaPlayer = MediaPlayer.create(this, R.raw.sound);
 
+        Intent intentReceptor = getIntent();
+
+        Bundle parametros = intentReceptor.getExtras();
+
+        int record = parametros.getInt("key_record");
+
+        showScore.setText("score: " + record );
+
         inicio.setOnClickListener(
                 new View.OnClickListener()
                 {
@@ -39,7 +47,7 @@ public class GameOverActivity extends AppCompatActivity {
                     public void onClick(View v)
                     {
                             mediaPlayer.start();
-                            Intent intent = new Intent( GameOverActivity.this, MainActivity.class);
+                            Intent intent = new Intent( GameOverActivity.this, HomeActivity.class);
                             startActivity(intent);
                     }
                 }
@@ -60,7 +68,7 @@ public class GameOverActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed (){
-        Intent intent = new Intent(GameOverActivity.this, MainActivity.class);
+        Intent intent = new Intent(GameOverActivity.this, HomeActivity.class);
         startActivity(intent);
     }
 }

@@ -77,4 +77,11 @@ public class Second2Activity extends AppCompatActivity {
                 }
         );
     }
+
+    @Override
+    public void onBackPressed (){
+        Intent intent = new Intent(Second2Activity.this, HomeActivity.class);
+        startActivity(intent);
+    }
+
 }
