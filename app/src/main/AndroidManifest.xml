@@ -9,12 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".GameOverActivity" />
-        <activity android:name=".Second2Activity" />
+        <activity android:name=".HomeActivity"
+            android:screenOrientation="locked">
+        </activity>
+        <activity android:name=".GameOverActivity"
+            android:screenOrientation="locked"/>
+        <activity android:name=".Second2Activity"
+            android:screenOrientation="locked"/>
         <activity android:name=".Praticar2Activity" />
-        <activity android:name=".VencedorActivity" />
-        <activity android:name=".DueloActivity" />
+        <activity android:name=".VencedorActivity"
+            android:screenOrientation="locked"/>
+        <activity android:name=".DueloActivity"
+            android:screenOrientation="locked"/>
         <activity android:name=".RadiActivity" />
         <activity android:name=".PoteActivity" />
         <activity android:name=".DiviActivity" />
@@ -22,9 +28,12 @@
         <activity android:name=".SubtActivity" />
         <activity android:name=".AdicActivity" />
         <activity android:name=".AprenderActivity" />
-        <activity android:name=".PraticarActivity" />
-        <activity android:name=".SecondActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".PraticarActivity"
+            android:screenOrientation="locked"/>
+        <activity android:name=".SecondActivity"
+            android:screenOrientation="locked"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="locked">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
