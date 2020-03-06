@@ -10,23 +10,25 @@
         android:id="@+id/gameOver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="25dp"
         android:text="Game Over"
         android:textSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/showScore"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/showScore"
         app:layout_constraintTop_toTopOf="parent"
         tools:fontFamily="sans-serif-black" />
 
     <TextView
         android:id="@+id/showScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="140dp"
-        android:text="Score: ainda vou colocar"
-        app:layout_constraintBottom_toTopOf="@+id/jogarNov"
+        android:layout_width="212dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="43dp"
+        android:gravity="center"
+        android:text="Score"
+        app:layout_constraintBottom_toTopOf="@+id/resetScore"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gameOver" />
@@ -34,21 +36,21 @@
     <Button
         android:id="@+id/jogarNov"
         android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/custon_button"
         android:text="Jogar Novamente"
         android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/inicio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/showScore" />
+        app:layout_constraintTop_toBottomOf="@+id/resetScore" />
 
     <Button
         android:id="@+id/inicio"
         android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="23dp"
         android:background="@drawable/custon_button"
         android:text="Menu Inicial"
         android:textAllCaps="false"
@@ -56,5 +58,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jogarNov" />
+
+    <Button
+        android:id="@+id/resetScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/custon_button"
+        android:text="Reset"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/jogarNov"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showScore" />
 
 </android.support.constraint.ConstraintLayout>

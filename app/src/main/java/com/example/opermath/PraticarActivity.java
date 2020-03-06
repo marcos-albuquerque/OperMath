@@ -3,6 +3,7 @@ package com.example.opermath;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -111,6 +112,8 @@ public class PraticarActivity extends AppCompatActivity
         addActionToButtons2();
         nextProblem();
         regress();
+
+
     }
 
     public void regress()
@@ -126,19 +129,34 @@ public class PraticarActivity extends AppCompatActivity
                 counter--;
                 regressBar.setProgress(counter);
 
-                int record = Integer.parseInt(score.getText().toString());
+                //int record = Integer.parseInt(score.getText().toString());
 
                 if(counter == 0)
                 {
+                    SharedPreferences preferences = getSharedPreferences("PREFS",  0);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putInt("Último score", ponto);
+                    editor.apply();
+
+
+
+                    /*
+                    SharedPreferences preferences = getSharedPreferences("PREFS", 0);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putInt("lastScore", ponto);
+                    editor.apply();
+                    */
+
                     Intent intent2 = new Intent(PraticarActivity.this, GameOverActivity.class);
-                    Bundle parametros = new Bundle();
+                    //Bundle parametros = new Bundle();
 
-                    parametros.putInt("key_record", record);
+                    //parametros.putInt("key_record", record);
 
-                    intent2.putExtras(parametros);
+                    //intent2.putExtras(parametros);
 
                     startActivity(intent2);
                     t.cancel();
+                    finish();
                 }
             }
         };
