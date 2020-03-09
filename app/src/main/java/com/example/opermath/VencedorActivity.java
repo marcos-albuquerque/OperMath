@@ -35,19 +35,27 @@ public class VencedorActivity extends AppCompatActivity {
 
         // Quem venceu
         Intent intent = getIntent();
-        if(intent.hasExtra(DueloActivity.JOGADOR1))
+        if(intent.hasExtra(DueloActivity.JOGADOR))
         {
-            int jogador = intent.getIntExtra(DueloActivity.JOGADOR1, 0);
-            //vencendorMensagem.setText("O jogador " + jogador + " venceu!");
-            vencendorMensagem.setText("Você venceu o duelo!");
-            vencendorMensagem2.setText("Não foi dessa vez");
+            int jogador = intent.getIntExtra(DueloActivity.JOGADOR, 0);
+            if (jogador == 1){
+                vencendorMensagem.setText("Parabéns, você venceu!");
+                vencendorMensagem2.setText("Não foi dessa vez");
+            }
+            else {
+                vencendorMensagem.setText("Não foi dessa vez");
+                vencendorMensagem2.setText("Parabéns, você venceu!");
+            }
+            //vencendorMensagem.setText("Você venceu o duelo!");
+            //vencendorMensagem2.setText("Não foi dessa vez");
         }
+        /*
         if(intent.hasExtra(DueloActivity.JOGADOR2))
         {
             int jogador2 = intent.getIntExtra(DueloActivity.JOGADOR2, 0);
             vencendorMensagem2.setText("Você venceu o duelo!");
             vencendorMensagem.setText("Não foi dessa vez");
-        }
+        } */
 
 
         jogarNovamente.setOnClickListener(

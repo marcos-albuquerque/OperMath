@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.opermath.nivel.IScore;
+
 import static java.lang.Integer.valueOf;
 
 public class GameOverActivity extends AppCompatActivity {
@@ -47,8 +49,8 @@ public class GameOverActivity extends AppCompatActivity {
 
         // Carrega o score antigo
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
-        lastScore = preferences.getInt("Último score", 0);
-        bestScore = preferences.getInt("Melhor score", 0);
+        lastScore = preferences.getInt(IScore.ULTIMO_SCORE, 0);
+        bestScore = preferences.getInt(IScore.ULTIMO_SCORE, 0);
 
         // Substitui se houver um score mais maior
         if(lastScore > bestScore)

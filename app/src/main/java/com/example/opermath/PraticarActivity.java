@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.opermath.nivel.INivel;
+import com.example.opermath.nivel.IScore;
 import com.example.opermath.nivel.NivelDificil;
 import com.example.opermath.nivel.NivelFacil;
 import com.example.opermath.nivel.NivelMedio;
@@ -49,6 +50,8 @@ public class PraticarActivity extends AppCompatActivity
     private Button answer3;
     private int ponto1;
     private INivel nivel;
+
+    private boolean fecharPraticar = false;
 
     ProgressBar regressBar;
     int counter = 100;
@@ -135,26 +138,18 @@ public class PraticarActivity extends AppCompatActivity
                 {
                     SharedPreferences preferences = getSharedPreferences("PREFS",  0);
                     SharedPreferences.Editor editor = preferences.edit();
-                    editor.putInt("Último score", ponto);
+                    editor.putInt(IScore.ULTIMO_SCORE, ponto);
                     editor.apply();
-
-
-
-                    /*
-                    SharedPreferences preferences = getSharedPreferences("PREFS", 0);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putInt("lastScore", ponto);
-                    editor.apply();
-                    */
 
                     Intent intent2 = new Intent(PraticarActivity.this, GameOverActivity.class);
-                    //Bundle parametros = new Bundle();
-
-                    //parametros.putInt("key_record", record);
-
-                    //intent2.putExtras(parametros);
 
                     startActivity(intent2);
+                    t.cancel();
+                    finish();
+                }
+
+                if(fecharPraticar)
+                {
                     t.cancel();
                     finish();
                 }
@@ -204,7 +199,7 @@ public class PraticarActivity extends AppCompatActivity
                             {
                                 ponto++;
                                 score.setText("" + ponto);
-                                counter= counter + 15;
+                                counter = Math.min(100, counter + 15);
                                 nextProblem();
                             }
                             // Toast.makeText(getApplicationContext(), "Resposta correta selecionada.", Toast.LENGTH_LONG).show();
@@ -214,7 +209,7 @@ public class PraticarActivity extends AppCompatActivity
 
                                 if(buttonList.contains(answer))
                                 {
-                                    ponto--;
+                                    ponto = Math.max(0, ponto-1);
                                     score.setText("" + ponto);
                                     nextProblem();
                                 }
@@ -325,6 +320,7 @@ public class PraticarActivity extends AppCompatActivity
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i)
                     {
+                        fecharPraticar = true;
                         Intent intent = new Intent(PraticarActivity.this, HomeActivity.class);
                         startActivity(intent);
                     }
