@@ -11,8 +11,11 @@ import android.widget.TextView;
 public class VencedorActivity extends AppCompatActivity {
 
     private TextView vencendorMensagem;
+    private TextView vencendorMensagem2;
     private  Button jogarNovamente;
+    private  Button jogarNovamente2;
     private Button backMenu;
+    private Button backMenu2;
 
     MediaPlayer mediaPlayer;
 
@@ -22,21 +25,37 @@ public class VencedorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_vencedor);
 
         vencendorMensagem = findViewById(R.id.vencedorMensagem);
+        vencendorMensagem2 = findViewById(R.id.vencedorMensagem2);
         jogarNovamente = findViewById(R.id.jogarNovamente);
+        jogarNovamente2 = findViewById(R.id.jogarNovamente2);
         backMenu = findViewById(R.id.backMenu);
+        backMenu2 = findViewById(R.id.backMenu2);
 
         mediaPlayer = MediaPlayer.create(this, R.raw.sound);
 
+        // Quem venceu
         Intent intent = getIntent();
-        if(intent.hasExtra(DueloActivity.JOGADOR)) {
-            int jogador = intent.getIntExtra(DueloActivity.JOGADOR, 0);
-            vencendorMensagem.setText("O jogador " + jogador + " venceu!");
+        if(intent.hasExtra(DueloActivity.JOGADOR1))
+        {
+            int jogador = intent.getIntExtra(DueloActivity.JOGADOR1, 0);
+            //vencendorMensagem.setText("O jogador " + jogador + " venceu!");
+            vencendorMensagem.setText("Você venceu o duelo!");
+            vencendorMensagem2.setText("Não foi dessa vez");
+        }
+        if(intent.hasExtra(DueloActivity.JOGADOR2))
+        {
+            int jogador2 = intent.getIntExtra(DueloActivity.JOGADOR2, 0);
+            vencendorMensagem2.setText("Você venceu o duelo!");
+            vencendorMensagem.setText("Não foi dessa vez");
         }
 
+
         jogarNovamente.setOnClickListener(
-                new View.OnClickListener() {
+                new View.OnClickListener()
+                {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick(View view)
+                    {
                         mediaPlayer.start();
                         Intent intent = new Intent(VencedorActivity.this, SecondActivity.class);
                         startActivity(intent);
@@ -44,8 +63,35 @@ public class VencedorActivity extends AppCompatActivity {
                 }
         );
 
+        jogarNovamente2.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View view)
+                    {
+                        mediaPlayer.start();
+                        Intent intent = new Intent(VencedorActivity.this, SecondActivity.class);
+                        startActivity(intent);
+                    }
+                }
+        );
+
+
         backMenu.setOnClickListener(
-                new View.OnClickListener() {
+                new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View view) {
+                        mediaPlayer.start();
+                        Intent intent = new Intent(VencedorActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                    }
+                }
+        );
+
+        backMenu2.setOnClickListener(
+                new View.OnClickListener()
+                {
                     @Override
                     public void onClick(View view) {
                         mediaPlayer.start();
@@ -57,7 +103,8 @@ public class VencedorActivity extends AppCompatActivity {
 
     }
     @Override
-    public void onBackPressed (){
+    public void onBackPressed ()
+    {
         Intent intent = new Intent(VencedorActivity.this, HomeActivity.class);
         startActivity(intent);
     }

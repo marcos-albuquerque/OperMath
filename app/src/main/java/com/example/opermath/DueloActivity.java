@@ -27,7 +27,8 @@ public class DueloActivity extends AppCompatActivity {
 
     private List<Character> operacoes = new ArrayList<>();
 
-    public static String JOGADOR = "Jogador";
+    public static String JOGADOR1 = "Jogador";
+    public static String JOGADOR2 = "Jogador";
     public static char OPERACAO_ADICAO = '+';
     public static char OPERACAO_SUBTRACAO = '-';
     public static char OPERACAO_MULTIPLICACAO = 'x';
@@ -216,16 +217,17 @@ public class DueloActivity extends AppCompatActivity {
                                     }
                                 //Toast.makeText(getApplicationContext(), "Resposta incorreta selecionada."+answer.getText(), Toast.LENGTH_LONG).show();
                             }
+
                         if(ponto1 >= 10) {
                             //Toast.makeText(getApplicationContext(), "O jogador 1 venceu!.", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(DueloActivity.this, VencedorActivity.class);
-                            intent.putExtra(JOGADOR, 1);
+                            intent.putExtra(JOGADOR1, "Você venceu o duelo!");
                             startActivity(intent);
                         }
                         else if (ponto2 >= 10){
                             //Toast.makeText(getApplicationContext(), "O jogador ic_launcher2 venceu!.", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(DueloActivity.this, VencedorActivity.class);
-                            intent.putExtra(JOGADOR, 2);
+                            intent.putExtra(JOGADOR2, "Você venceu o duelo!");
                             startActivity(intent);
                         }
                     }
