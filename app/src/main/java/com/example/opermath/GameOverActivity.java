@@ -50,7 +50,7 @@ public class GameOverActivity extends AppCompatActivity {
         // Carrega o score antigo
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         lastScore = preferences.getInt(IScore.ULTIMO_SCORE, 0);
-        bestScore = preferences.getInt(IScore.ULTIMO_SCORE, 0);
+        bestScore = preferences.getInt(IScore.MELHOR_SCORE, 0);
 
         // Substitui se houver um score mais maior
         if(lastScore > bestScore)
@@ -62,7 +62,7 @@ public class GameOverActivity extends AppCompatActivity {
         }
 
         // Exibe os scores
-        showScore.setText("Último score: " + lastScore + "\n" + "Melhor score: " + bestScore);
+        showScore.setText("Sua pontuação: " + lastScore + "\n" + "Melhor pontuação: " + bestScore);
 
         /*
         Intent intentReceptor = getIntent();
@@ -116,6 +116,8 @@ public class GameOverActivity extends AppCompatActivity {
                                         SharedPreferences.Editor editor = preferences.edit();
                                         editor.putInt("Melhor score", bestScore);
                                         editor.apply();
+                                        Toast.makeText(getApplicationContext(), "Resetado com sucesso!", Toast.LENGTH_LONG).show();
+
                                     }
                                 })
 

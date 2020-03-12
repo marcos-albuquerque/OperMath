@@ -15,6 +15,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="10dp"
         android:text="Adição"
         app:layout_constraintBottom_toTopOf="@+id/checkBoxSubtracao"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,6 +30,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="10dp"
         android:text="Subtração"
         app:layout_constraintBottom_toTopOf="@+id/checkBoxMultiplicacao"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +45,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="9dp"
         android:text="Multiplicação"
         app:layout_constraintBottom_toTopOf="@+id/checkBoxDivisao"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +60,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="15dp"
         android:text="Divisão"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,14 +71,13 @@
         android:id="@+id/buttonIniciar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/custon_button"
         android:text="Iniciar"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        android:background="@drawable/custon_button"
-        android:textAllCaps="false"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
@@ -84,14 +85,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginBottom="11dp"
         android:text="Operações"
+        android:textColor="#B3000000"
+        android:textSize="20sp"
         app:fontFamily="sans-serif-black"
         app:layout_constraintBottom_toTopOf="@+id/checkBoxAdicao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolBar" />
 
     <TextView
         android:id="@+id/textView2"
@@ -99,8 +101,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:text="Nível"
+        android:textColor="#B3000000"
+        android:textSize="20sp"
         app:fontFamily="sans-serif-black"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,36 +113,49 @@
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="405dp"
-        android:layout_height="159dp"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginBottom="118dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonIniciar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <RadioButton
             android:id="@+id/radioButtonFacil"
-            android:layout_width="134dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
             android:text="Fácil" />
 
         <RadioButton
             android:id="@+id/radioButtonMedio"
-            android:layout_width="135dp"
-            android:layout_height="5dp"
-            android:layout_weight="1"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
             android:text="Médio" />
 
         <RadioButton
             android:id="@+id/radioButtonDificil"
-            android:layout_width="135dp"
-            android:layout_height="4dp"
-            android:layout_weight="1"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
             android:text="Difícil" />
     </RadioGroup>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     />
 

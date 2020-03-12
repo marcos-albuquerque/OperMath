@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -42,9 +43,15 @@ public class SecondActivity extends AppCompatActivity {
         final RadioButton medio = findViewById(R.id.radioButtonMedio);
         final RadioButton dificil = findViewById(R.id.radioButtonDificil);
         final Button iniciar = findViewById(R.id.buttonIniciar);
+        final Toolbar toolBar = findViewById(R.id.toolBar);
 
         mediaPlayer = MediaPlayer.create(this, R.raw.sound);
         mediaPlayer2 = MediaPlayer.create(this, R.raw.sound2);
+
+        setSupportActionBar(toolBar);
+        getSupportActionBar().setTitle("Opções do Jogo");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //toolBar.setTitleTextColor(0xFFFFFFFF);
 
 
         buttonIniciar.setOnClickListener(

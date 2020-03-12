@@ -15,7 +15,8 @@
         <activity android:name=".GameOverActivity"
             android:screenOrientation="locked"/>
         <activity android:name=".Second2Activity"
-            android:screenOrientation="locked"/>
+            android:screenOrientation="locked"
+            android:parentActivityName=".HomeActivity"/>
         <activity android:name=".Praticar2Activity" />
         <activity android:name=".VencedorActivity"
             android:screenOrientation="locked"/>
@@ -31,7 +32,8 @@
         <activity android:name=".PraticarActivity"
             android:screenOrientation="locked"/>
         <activity android:name=".SecondActivity"
-            android:screenOrientation="locked"/>
+            android:screenOrientation="locked"
+            android:parentActivityName=".HomeActivity"/>
         <activity android:name=".MainActivity"
             android:screenOrientation="locked">
             <intent-filter>
