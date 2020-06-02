@@ -53,7 +53,6 @@ public class SecondActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //toolBar.setTitleTextColor(0xFFFFFFFF);
 
-
         buttonIniciar.setOnClickListener(
                 new View.OnClickListener() {
                     @Override

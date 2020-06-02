@@ -28,7 +28,9 @@
         <activity android:name=".MultActivity" />
         <activity android:name=".SubtActivity" />
         <activity android:name=".AdicActivity" />
-        <activity android:name=".AprenderActivity" />
+        <activity android:name=".AprenderActivity"
+            android:screenOrientation="locked"
+            android:parentActivityName=".HomeActivity"/>
         <activity android:name=".PraticarActivity"
             android:screenOrientation="locked"/>
         <activity android:name=".SecondActivity"

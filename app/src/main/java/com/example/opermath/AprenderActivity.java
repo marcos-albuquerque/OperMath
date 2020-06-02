@@ -3,6 +3,7 @@ package com.example.opermath;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
@@ -12,8 +13,7 @@ public class AprenderActivity extends AppCompatActivity {
     private Button subtButton;
     private Button multButton;
     private Button diviButton;
-    private Button poteButton;
-    private Button radiButton;
+    //private Toolbar toolBarLearn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +24,11 @@ public class AprenderActivity extends AppCompatActivity {
         subtButton = (Button) findViewById(R.id.button4);
         multButton = (Button) findViewById(R.id.button5);
         diviButton = (Button) findViewById(R.id.button6);
-        poteButton = (Button) findViewById(R.id.button7);
-        radiButton = (Button) findViewById(R.id.button8);
+        final Toolbar toolBarLearn = (Toolbar) findViewById(R.id.toolBarLearn);
+
+        setSupportActionBar(toolBarLearn);
+        getSupportActionBar().setTitle("Aprender");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         adicButton.setOnClickListener(
                 new View.OnClickListener() {
@@ -66,25 +69,11 @@ public class AprenderActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
 
-        poteButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(AprenderActivity.this, PoteActivity.class);
-                        startActivity(intent);
-                    }
-                }
-        );
-
-        radiButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(AprenderActivity.this, RadiActivity.class);
-                        startActivity(intent);
-                    }
-                }
-        );
+    @Override
+    public void onBackPressed (){
+        Intent intent = new Intent(AprenderActivity.this, HomeActivity.class);
+        startActivity(intent);
     }
 }
