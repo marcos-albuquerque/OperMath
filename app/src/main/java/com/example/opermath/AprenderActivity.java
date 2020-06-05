@@ -20,11 +20,11 @@ public class AprenderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aprender);
 
-        adicButton = (Button) findViewById(R.id.button);
-        subtButton = (Button) findViewById(R.id.button4);
-        multButton = (Button) findViewById(R.id.button5);
-        diviButton = (Button) findViewById(R.id.button6);
-        final Toolbar toolBarLearn = (Toolbar) findViewById(R.id.toolBarLearn);
+        adicButton = findViewById(R.id.button);
+        subtButton = findViewById(R.id.button4);
+        multButton = findViewById(R.id.button5);
+        diviButton = findViewById(R.id.button6);
+        final Toolbar toolBarLearn = findViewById(R.id.toolBarLearn);
 
         setSupportActionBar(toolBarLearn);
         getSupportActionBar().setTitle("Aprender");

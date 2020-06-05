@@ -9,34 +9,51 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity"
-            android:screenOrientation="locked">
-        </activity>
-        <activity android:name=".GameOverActivity"
-            android:screenOrientation="locked"/>
-        <activity android:name=".Second2Activity"
-            android:screenOrientation="locked"
-            android:parentActivityName=".HomeActivity"/>
+        <activity android:name=".Adic2Activity"
+            android:parentActivityName=".AdicActivity"
+            android:screenOrientation="locked" />
+        <activity android:name=".Adic1Activity"
+            android:parentActivityName=".AdicActivity"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".HomeActivity"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".GameOverActivity"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".Second2Activity"
+            android:parentActivityName=".HomeActivity"
+            android:screenOrientation="locked" />
         <activity android:name=".Praticar2Activity" />
-        <activity android:name=".VencedorActivity"
-            android:screenOrientation="locked"/>
-        <activity android:name=".DueloActivity"
-            android:screenOrientation="locked"/>
+        <activity
+            android:name=".VencedorActivity"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".DueloActivity"
+            android:screenOrientation="locked" />
         <activity android:name=".RadiActivity" />
         <activity android:name=".PoteActivity" />
         <activity android:name=".DiviActivity" />
         <activity android:name=".MultActivity" />
         <activity android:name=".SubtActivity" />
-        <activity android:name=".AdicActivity" />
-        <activity android:name=".AprenderActivity"
-            android:screenOrientation="locked"
-            android:parentActivityName=".HomeActivity"/>
-        <activity android:name=".PraticarActivity"
-            android:screenOrientation="locked"/>
-        <activity android:name=".SecondActivity"
-            android:screenOrientation="locked"
-            android:parentActivityName=".HomeActivity"/>
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".AdicActivity"
+            android:parentActivityName=".AdicActivity"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".AprenderActivity"
+            android:parentActivityName=".HomeActivity"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".PraticarActivity"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".SecondActivity"
+            android:parentActivityName=".HomeActivity"
+            android:screenOrientation="locked" />
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="locked">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

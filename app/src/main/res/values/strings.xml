@@ -3,5 +3,18 @@
     <string name="duelar">Duelar</string>
     <string name="praticar">Praticar</string>
     <string name="aprender">Aprender</string>
+    <string name="description">
+
+        <b>1. DA ESQUERDA PARA DIREITA</b> \n
+        439 + 327 = ? \n
+        Passo 1: Decomponha\n
+        (400 + 30 + 9) + (300 + 20 + 7) = ? \n \n
+        <b>Passo 2: Some da esquerda para direita</b> \n
+        400 + 300 = 700 \n
+        30 + 20 = 50 \n
+         9 +  7 = 16 \n
+        Logo, 700 + 50 + 16 = <b>766</b> \n
+
+    </string>
 
 </resources>
