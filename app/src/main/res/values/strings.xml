@@ -5,15 +5,26 @@
     <string name="aprender">Aprender</string>
     <string name="description">
 
-        <b>1. DA ESQUERDA PARA DIREITA</b> \n
-        439 + 327 = ? \n
-        Passo 1: Decomponha\n
+        <b>1. DA ESQUERDA PARA DIREITA E DECOMPOSIÇÃO</b> \n\n
+        <b><font color='#0000FF'>Exemplo: 439 + 327 = ?</font></b> \n\n
+        <b>Passo 1: Decomponha:</b>\n
+        Decompor os operandos ou parte deles
+        torna a operação mais fácil de ser
+        resolvida, como segue: \n
         (400 + 30 + 9) + (300 + 20 + 7) = ? \n \n
-        <b>Passo 2: Some da esquerda para direita</b> \n
+        <b>Passo 2: Some da esquerda para direita:</b> \n
+        No papel, constumamos efetuar
+        operações de soma da direita
+        para esquerda. Porém devido
+        sermos acostumados a ler
+        textos da esquerda para
+        direita, é mais natural e
+        mais rápido somar da direita
+        para a esquerda, como é mostrado abaixo: \n
         400 + 300 = 700 \n
         30 + 20 = 50 \n
-         9 +  7 = 16 \n
-        Logo, 700 + 50 + 16 = <b>766</b> \n
+         9 +  7 = 16 = 10 + 6 \n
+        Logo, 700 + 50 + 10 + 6 = <b><font color='#008000'>766</font></b>. \n
 
     </string>
 
