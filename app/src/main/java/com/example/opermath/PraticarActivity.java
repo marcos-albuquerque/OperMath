@@ -54,7 +54,7 @@ public class PraticarActivity extends AppCompatActivity
     private boolean fecharPraticar = false;
 
     ProgressBar regressBar;
-    int counter = 100;
+    int counter = 100; // contador do progressbar
 
     MediaPlayer mediaPlayer3;
     MediaPlayer mediaPlayer4;
@@ -115,7 +115,6 @@ public class PraticarActivity extends AppCompatActivity
         addActionToButtons2();
         nextProblem();
         regress();
-
 
     }
 

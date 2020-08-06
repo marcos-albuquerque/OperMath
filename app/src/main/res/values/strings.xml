@@ -28,4 +28,19 @@
 
     </string>
 
+    <string name="description2">
+
+        <b>2. ARREDONDAMENTO </b> \n\n
+        Consiste em arredondar um número para facilitar a operação.\n
+        <b><font color='#0000FF'>Exemplo: 398 + 96 = ?</font></b> \n\n
+        <b>Passo 1: Arredonde 398 para 400 somando com o número 2. Então\n</b>\n
+        400 + 96 = 496 \n\n
+
+        <b>Passo 2: Subtraia o 2 que havia somado no início</b> \n\n
+        496 - 2 = 494 \n
+        Logo, \n
+        398 + 96 = <b><font color='#008000'>494</font></b>. \n\n
+
+    </string>
+
 </resources>
