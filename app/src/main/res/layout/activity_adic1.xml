@@ -36,20 +36,20 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/textViewAdic1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="9dp"
-            android:layout_marginLeft="9dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="9dp"
-            android:layout_marginRight="9dp"
-            android:text="@string/description"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolBarAdic1" />
+            <TextView
+                android:id="@+id/textViewAdic1"
+                android:layout_width="wrap_content"
+                android:layout_height="573dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="9dp"
+                android:layout_marginRight="9dp"
+                android:text="@string/descriptionAdic1"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolBarAdic1" />
 
         </LinearLayout>
     </ScrollView>

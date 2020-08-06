@@ -4,32 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Adic2Activity">
+    tools:context=".Subt1Activity">
 
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolBarAdic2"
+        android:id="@+id/toolBarSubt1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/scrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolBarAdic2">
+        app:layout_constraintTop_toBottomOf="@+id/toolBarSubt1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,19 +37,19 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textViewAdic2"
+                android:id="@+id/textViewSubt1"
                 android:layout_width="wrap_content"
-                android:layout_height="567dp"
+                android:layout_height="573dp"
                 android:layout_marginStart="9dp"
                 android:layout_marginLeft="9dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="9dp"
                 android:layout_marginRight="9dp"
-                android:text="@string/descriptionAdic2"
+                android:text="@string/descriptionSubt1"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toolBarAdic2" />
+                app:layout_constraintTop_toBottomOf="@+id/toolBarSubt1" />
 
         </LinearLayout>
     </ScrollView>

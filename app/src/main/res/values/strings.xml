@@ -3,7 +3,8 @@
     <string name="duelar">Duelar</string>
     <string name="praticar">Praticar</string>
     <string name="aprender">Aprender</string>
-    <string name="description">
+
+    <string name="descriptionAdic1">
 
         <b>1. DA ESQUERDA PARA DIREITA E DECOMPOSIÇÃO</b> \n\n
         <b><font color='#0000FF'>Exemplo: 439 + 327 = ?</font></b> \n\n
@@ -28,7 +29,7 @@
 
     </string>
 
-    <string name="description2">
+    <string name="descriptionAdic2">
 
         <b>2. ARREDONDAMENTO </b> \n\n
         Consiste em arredondar um número para facilitar a operação.\n
@@ -40,6 +41,39 @@
         496 - 2 = 494 \n
         Logo, \n
         398 + 96 = <b><font color='#008000'>494</font></b>. \n\n
+
+    </string>
+
+    <string name="descriptionSubt1">
+
+        <b>1. DA ESQUERDA PARA DIREITA E DECOMPOSIÇÃO</b> \n\n
+        <b><font color='#0000FF'>Exemplo: 523 - 345 = ?</font></b> \n\n
+        <b>Passo 1: Decomponha:</b>\n
+        Decompor os operandos ou parte deles
+        torna a operação mais fácil de ser
+        resolvida, como segue: \n
+        (500 + 20 + 3) - (300 + 40 + 5) = ? \n \n
+        <b>Passo 2: Subtraia da esquerda para direita:</b> \n
+        500 - 300 = 200 \n
+        20 - 40 = -20 \n
+         3 -  5 = -2 \n\n
+        Por fim, 200 - 20 - 2 = 178\n
+        Logo,\n
+        523 - 345 = <b><font color='#008000'>178</font></b>. \n
+    </string>
+
+    <string name="descriptionSubt2">
+
+        <b>2. ARREDONDAMENTO </b> \n\n
+        Consiste em arredondar um número para facilitar a operação.\n
+        <b><font color='#0000FF'>Exemplo: 297 - 56 = ?</font></b> \n\n
+        <b>Passo 1: Arredonde 297 para 300 somando com o número 3. Então\n</b>\n
+        300 - 56 = 244 \n\n
+
+        <b>Passo 2: Subtraia o 3 que havia somado no início</b> \n\n
+        244 - 3 = 241 \n
+        Logo, \n
+        297 - 56 = <b><font color='#008000'>241</font></b>. \n\n
 
     </string>
 
