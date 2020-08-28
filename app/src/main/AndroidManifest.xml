@@ -9,11 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Mult4Activity"></activity>
+        <activity android:name=".Mult3Activity" />
+        <activity android:name=".Mult2Activity" />
+        <activity android:name=".Mult1Activity"
+            android:parentActivityName=".MultActivity"
+            android:screenOrientation="locked"  />
         <activity
             android:name=".Subt2Activity"
             android:parentActivityName=".SubtActivity"
             android:screenOrientation="locked" />
-
         <activity
             android:name=".Subt1Activity"
             android:parentActivityName=".SubtActivity"
@@ -47,7 +52,7 @@
         <activity android:name=".PoteActivity" />
         <activity android:name=".DiviActivity" />
         <activity android:name=".MultActivity" />
-        <activity 
+        <activity
             android:name=".SubtActivity"
             android:parentActivityName=".AprenderActivity"
             android:screenOrientation="locked" />

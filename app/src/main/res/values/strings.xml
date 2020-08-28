@@ -20,8 +20,8 @@
         sermos acostumados a ler
         textos da esquerda para
         direita, é mais natural e
-        mais rápido somar da direita
-        para a esquerda, como é mostrado abaixo: \n
+        mais rápido somar da esquerda
+        para a direita, como é mostrado abaixo: \n
         400 + 300 = 700 \n
         30 + 20 = 50 \n
          9 +  7 = 16 = 10 + 6 \n
@@ -74,6 +74,35 @@
         244 - 3 = 241 \n
         Logo, \n
         297 - 56 = <b><font color='#008000'>241</font></b>. \n\n
+
+    </string>
+
+    <string name="descriptionMult1">
+
+        <b>1. MULTIPLICANDO POR 10 </b> \n\n
+        Não há nada mais fácil do que multiplicar por 10, 100, 1000, etc.\n
+        Quando multiplicamos um número qualquer por 10, basta adicionar
+        mais um zero ao final deste número:  \n\n
+        <b><font color='#0000FF'>Exemplo:</font></b> \n
+        6 x 10 = 60  \n
+        2 x 10 = 20 \n
+        13 x 10 = 130 \n\n
+
+        Quando temos casas decimais, basta mover a vírgula uma vez para a direita:  \n
+        <b><font color='#0000FF'>Exemplo:</font></b> \n
+        3,5 x 10 = 35 \n
+        1,99 x 10 = 19,9 \n\n
+        O mesmo ocorre com o 100 (adiciona dois zeros ao final),
+        1000 (adiciona três zeros ao final), …\n
+        <b><font color='#0000FF'>Exemplo:</font></b> \n
+        4 x 100 = 400 \n
+        15 x 100 = 1500 \n
+        2 x 1000 = 2000  \n\n
+
+        Com casas decimais: \n
+        3,5 x 100 = 350 \n
+        1,99 x 100 = 199 \n
+        2,99 x 1000 = 2990 \n\n
 
     </string>
 
